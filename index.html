@@ -1,0 +1,1829 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Pablo Muney | Plataforma Corporativa Oficial — Medios & Negocios</title>
+  <meta name="description" content="Plataforma oficial de Pablo Muney. Periodista, conductor de televisión y empresario argentino. Archivo de producciones (Net TV, C5N, El Trece), franquicias Empanadazas y patente zoosanitaria Empapets (SENASA).">
+  <link rel="canonical" href="https://www.pablomuney.com/">
+
+  <!-- Meta Redes Sociales -->
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Pablo Muney | Plataforma Corporativa Oficial">
+  <meta property="og:description" content="Conducción televisiva (+25 años) y desarrollos en franquicias gastronómicas y patentes oficiales de consumo humano.">
+  <meta property="og:url" content="https://www.pablomuney.com/">
+  <meta property="og:image" content="https://www.pablomuney.com/assets/img/pablo-muney-og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- ==========================================================================
+       GOOGLE KNOWLEDGE GRAPH: GRAFO SEMÁNTICO EMPRESARIAL (@graph)
+       ========================================================================== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://www.pablomuney.com/#person",
+        "name": "Pablo Muney",
+        "givenName": "Pablo",
+        "familyName": "Muney",
+        "birthDate": "1984-01-21",
+        "gender": "https://schema.org/Male",
+        "nationality": {
+          "@type": "Country",
+          "name": "Argentina"
+        },
+        "jobTitle": [
+          "Conductor de televisión",
+          "Periodista",
+          "Locutor",
+          "Productor audiovisual",
+          "Empresario"
+        ],
+        "url": "https://www.pablomuney.com/",
+        "sameAs": [
+          "https://www.instagram.com/pablomuneyok/",
+          "https://www.youtube.com/@pablomuney",
+          "https://www.wikidata.org/wiki/Q141598942",
+          "https://www.imdb.com/name/nm18964277/"
+        ],
+        "worksFor": [
+          { "@type": "TelevisionStation", "name": "Net TV" },
+          { "@type": "TelevisionStation", "name": "C5N" },
+          { "@type": "TelevisionStation", "name": "El Trece" },
+          { "@type": "RadioStation", "name": "Pop 101.5" }
+        ],
+        "founder": [
+          {
+            "@type": "Organization",
+            "name": "Empanadazas",
+            "url": "https://franquiciaempanadazas.com/",
+            "sameAs": "https://www.instagram.com/empanadazas/"
+          }
+        ]
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://www.pablomuney.com/#org-empanadazas",
+        "name": "Empanadazas",
+        "founder": { "@id": "https://www.pablomuney.com/#person" },
+        "url": "https://franquiciaempanadazas.com/",
+        "sameAs": "https://www.instagram.com/empanadazas/",
+        "description": "Cadena de franquicias gastronómicas creadora del concepto Miti-Miti (doble sabor) y de la línea Empapets certificada por SENASA."
+      }
+    ]
+  }
+  </script>
+
+  <!-- Tipografías: Syne (Art Pop Logo), Fraunces (Editorial Serif) & Inter / Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       1. VARIABLES GLOBALES & TOKENS DE PRESTIGIO
+       ========================================================================== */
+    :root {
+      --bg-canvas: #FAF6F0;
+      --bg-surface: #FFFFFF;
+      --bg-subtle: #F3ECE2;
+      --bg-card-hover: #FCFBF9;
+
+      --ink-primary: #11151F;
+      --ink-secondary: #3A4252;
+      --ink-muted: #6B7280;
+      --hairline: #DDD5C7;
+      --hairline-fine: rgba(17, 21, 31, 0.08);
+
+      /* Paleta Art Pop Psicodélica de Alta Costura */
+      --pop-magenta: #F72585;
+      --pop-purple: #7209B7;
+      --pop-cyan: #4CC9F0;
+      --pop-emerald: #06D6A0;
+      --pop-amber: #FF9E00;
+
+      --accent-blue: #001489;
+      --accent-terracotta: #B45309;
+      --accent-senasa: #047857;
+
+      --font-logo: 'Syne', sans-serif;
+      --font-display: 'Fraunces', Georgia, serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+      --font-mono: 'Space Grotesk', monospace;
+
+      --ease-curtain: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-button: cubic-bezier(0.87, 0, 0.13, 1);
+      --ease-smooth: cubic-bezier(0.25, 1, 0.5, 1);
+
+      --header-h: 70px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    html {
+      background-color: var(--bg-canvas);
+    }
+
+    /* FONDO TEXTURADO ORGÁNICO CON RELIEVE EDITORIAL */
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--ink-primary);
+      font-family: var(--font-body);
+      line-height: 1.55;
+      font-size: 15px;
+      overflow-x: hidden;
+      
+      background-image: 
+        radial-gradient(rgba(17, 21, 31, 0.04) 1px, transparent 1px),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.025'/%3E%3C/svg%3E");
+      background-size: 28px 28px, 180px 180px;
+    }
+
+    ::selection {
+      background-color: var(--pop-magenta);
+      color: #FFFFFF;
+    }
+
+    .container {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* ==========================================================================
+       2. EL TELÓN TEATRAL DE ENTRADA (LE GRAAL CORTINA)
+       ========================================================================== */
+    .base-curtain {
+      background: #FFFFFF;
+      height: 100vh;
+      width: 100%;
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 1.8s var(--ease-curtain) 0.1s, visibility 0s linear 1.9s;
+    }
+
+    .base-curtain.curtain-lifted {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .curtain-title {
+      font-family: var(--font-logo);
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      color: var(--ink-primary);
+      text-transform: uppercase;
+      background: linear-gradient(135deg, var(--pop-purple), var(--pop-magenta));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .curtain-line {
+      width: 42px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--pop-cyan), var(--pop-magenta));
+      margin-top: 12px;
+      animation: barGrow 1.2s var(--ease-curtain) forwards;
+    }
+
+    @keyframes barGrow {
+      0% { transform: scaleX(0); }
+      100% { transform: scaleX(1); }
+    }
+
+    /* ==========================================================================
+       3. CABECERA FLOTANTE CON LOGO ART POP
+       ========================================================================== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      height: var(--header-h);
+      background: rgba(250, 246, 240, 0.95);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 0.5px solid var(--hairline);
+      display: flex;
+      align-items: center;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .brand-link {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .brand-text {
+      font-family: var(--font-logo);
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.015em;
+      text-transform: uppercase;
+      color: var(--ink-primary);
+      position: relative;
+      transition: color 0.2s ease;
+    }
+
+    .brand-text:hover {
+      background: linear-gradient(90deg, var(--pop-magenta), var(--pop-purple), var(--pop-cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .header-nav {
+      display: flex;
+      gap: 6px;
+    }
+
+    /* ==========================================================================
+       4. BOTONES RÍGIDOS CON LLENADO VERTICAL
+       ========================================================================== */
+    .button {
+      --btn-bg: #FFFFFF;
+      --btn-text: var(--ink-primary);
+      --btn-fill: var(--ink-primary);
+      --btn-fill-text: #FFFFFF;
+      --btn-border: var(--hairline);
+
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 9px 18px;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--btn-text);
+      background-color: var(--btn-bg);
+      border: 0.5px solid var(--btn-border);
+      border-radius: 2px;
+      cursor: pointer;
+      overflow: hidden;
+      white-space: nowrap;
+      z-index: 1;
+      transition: color 0.3s var(--ease-curtain), border-color 0.3s var(--ease-curtain);
+    }
+
+    .button:after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: var(--btn-fill);
+      transform: scaleY(0);
+      transform-origin: bottom;
+      transition: transform 0.4s var(--ease-button);
+      z-index: -1;
+    }
+
+    .button:hover {
+      color: var(--btn-fill-text);
+      border-color: var(--btn-fill);
+    }
+
+    .button:hover:after {
+      transform: scaleY(1);
+    }
+
+    .button.solid {
+      --btn-bg: var(--ink-primary);
+      --btn-text: #FFFFFF;
+      --btn-fill: #262E3D;
+      --btn-fill-text: #FFFFFF;
+      --btn-border: var(--ink-primary);
+    }
+
+    .button.ghost {
+      --btn-bg: transparent;
+      --btn-border: transparent;
+      --btn-text: var(--ink-secondary);
+      --btn-fill: rgba(17, 21, 31, 0.05);
+      --btn-fill-text: var(--ink-primary);
+    }
+
+    /* ==========================================================================
+       5. HERO SECTION & INFINITY MIRROR PORTAL (SECTOR 1 GRANDE)
+       ========================================================================== */
+    .hero-wrap {
+      padding: 64px 0 54px;
+      border-bottom: 0.5px solid var(--hairline);
+    }
+
+    .hero-cols {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .kicker {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      color: var(--accent-terracotta);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .kicker-bar {
+      width: 24px;
+      height: 1px;
+      background: var(--accent-terracotta);
+    }
+
+    .hero-h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.3rem, 4.4vw, 3.8rem);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+
+    .hero-h1 em {
+      font-style: italic;
+      color: var(--accent-blue);
+      font-weight: 300;
+    }
+
+    .hero-p {
+      font-size: 15.5px;
+      color: var(--ink-secondary);
+      line-height: 1.65;
+      max-width: 580px;
+      margin-bottom: 30px;
+    }
+
+    .entity-badges-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .chip-entity {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--ink-secondary);
+      background: var(--bg-surface);
+      border: 0.5px solid var(--hairline);
+      padding: 5px 10px;
+      border-radius: 2px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s ease;
+    }
+
+    .chip-entity:hover {
+      border-color: var(--pop-magenta);
+      color: var(--pop-purple);
+      box-shadow: 0 2px 8px rgba(247, 37, 133, 0.12);
+    }
+
+    .hero-media-wrapper {
+      background: var(--bg-surface);
+      border: 0.5px solid var(--hairline);
+      padding: 8px;
+      border-radius: 3px;
+      box-shadow: 0 16px 36px -12px rgba(17, 21, 31, 0.08);
+      max-width: 320px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .hero-media-inner {
+      width: 100%;
+      aspect-ratio: 2 / 2.7;
+      overflow: hidden;
+      border-radius: 2px;
+      background: var(--bg-subtle);
+    }
+
+    .hero-portrait {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ==========================================================================
+       COMPONENTE: INFINITY MIRROR (ESPEJO INFINITO EN PERSPECTIVA)
+       ========================================================================== */
+    .infinity-mirror-module {
+      margin-top: 18px;
+      border-radius: 4px;
+      padding: 12px 14px;
+      background: #080B12;
+      border: 1px solid #1A2234;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: inset 0 0 15px rgba(76, 201, 240, 0.25);
+    }
+
+    /* El túnel de reflejos profundos al estilo de la foto */
+    .infinity-tunnel-view {
+      width: 58px;
+      height: 38px;
+      border-radius: 2px;
+      background: #020408;
+      position: relative;
+      overflow: hidden;
+      box-shadow:
+        inset 0 0 0 1.5px #00F0FF,
+        inset 0 0 6px 1px #00F0FF,
+        inset 0 0 0 4px #060A14,
+        inset 0 0 0 5.5px #4CC9F0,
+        inset 0 0 8px 1px #4CC9F0,
+        inset 0 0 0 8px #04070D,
+        inset 0 0 0 9.5px #7209B7,
+        inset 0 0 10px 2px #7209B7,
+        inset 0 0 0 12px #020408,
+        inset 0 0 0 13.5px #F72585,
+        inset 0 0 14px 2px #F72585,
+        inset 0 0 20px 8px #000000;
+      animation: infinityGlow 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes infinityGlow {
+      0% { filter: brightness(1) drop-shadow(0 0 3px rgba(0, 240, 255, 0.4)); }
+      100% { filter: brightness(1.25) drop-shadow(0 0 7px rgba(247, 37, 133, 0.6)); }
+    }
+
+    .infinity-label-group {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .infinity-title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: #E2E8F0;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .infinity-dot {
+      width: 6px;
+      height: 6px;
+      background: #00F0FF;
+      border-radius: 50%;
+      box-shadow: 0 0 6px #00F0FF;
+      animation: dotBlink 1.6s infinite;
+    }
+
+    @keyframes dotBlink {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    .infinity-sub {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: #94A3B8;
+      letter-spacing: 0.04em;
+    }
+
+    /* ==========================================================================
+       6. BARRA INSTITUCIONAL INTEGRADA (TRUST RIBBON)
+       ========================================================================== */
+    .trust-ribbon {
+      background: var(--bg-surface);
+      border-bottom: 0.5px solid var(--hairline);
+      padding: 16px 0;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      align-items: center;
+      text-align: center;
+    }
+
+    .trust-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: 0 10px;
+      border-right: 0.5px solid var(--hairline);
+    }
+
+    .trust-item:last-child {
+      border-right: none;
+    }
+
+    .trust-title {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--ink-primary);
+      letter-spacing: 0.5px;
+    }
+
+    .trust-sub {
+      font-size: 11px;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+    }
+
+    /* ==========================================================================
+       7. RECUADROS CON EFECTO ART POP MOIRÉ & COLORES VISIBLES EN REPOSO
+       ========================================================================== */
+    .section-wrap {
+      padding: 72px 0;
+      border-bottom: 0.5px solid var(--hairline);
+      scroll-margin-top: var(--header-h);
+    }
+
+    .section-header {
+      margin-bottom: 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 12px;
+    }
+
+    .section-kicker {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      color: var(--ink-muted);
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .section-h2 {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+    }
+
+    /* Grilla de Tarjetas */
+    .two-col-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    /* TARJETA CON COLORES VISIBLES EN REPOSO + EFECTO MOIRÉ */
+    .card-tile {
+      background: linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 72%, rgba(247, 37, 133, 0.02) 100%);
+      border: 0.5px solid var(--hairline);
+      border-radius: 4px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(18, 22, 31, 0.02);
+      transition: transform 0.28s var(--ease-smooth), box-shadow 0.28s var(--ease-smooth), border-color 0.28s ease;
+    }
+
+    /* 1. LÍNEA CROMÁTICA SUPERIOR (VISIBLE EN REPOSO AL 95%) */
+    .card-tile::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3.5px;
+      background: linear-gradient(90deg, var(--pop-magenta), var(--pop-purple), var(--pop-cyan), var(--pop-emerald), var(--pop-amber), var(--pop-magenta));
+      background-size: 300% 100%;
+      opacity: 0.95;
+      transition: opacity 0.3s ease;
+      z-index: 2;
+    }
+
+    /* 2. INTERFERENCIA CONCÉNTRICA MOIRÉ */
+    .card-tile::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: 
+        repeating-radial-gradient(circle at 100% 0%, transparent 0, transparent 4px, rgba(247, 37, 133, 0.025) 4px, rgba(247, 37, 133, 0.025) 5px),
+        repeating-radial-gradient(circle at 0% 100%, transparent 0, transparent 4px, rgba(76, 201, 240, 0.025) 4px, rgba(76, 201, 240, 0.025) 5px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      z-index: 1;
+    }
+
+    /* HOVER: FLOTACIÓN ELEGANTE + RESPLANDOR HOLOGRÁFICO */
+    .card-tile:hover {
+      transform: translateY(-4px);
+      border-color: rgba(247, 37, 133, 0.4);
+      box-shadow: 
+        0 14px 28px -10px rgba(18, 22, 31, 0.07),
+        0 8px 20px -6px rgba(247, 37, 133, 0.16),
+        0 0 18px -2px rgba(76, 201, 240, 0.2);
+    }
+
+    .card-tile:hover::before {
+      opacity: 1;
+      animation: chromaticShift 2.5s linear infinite;
+    }
+
+    .card-tile:hover::after {
+      opacity: 1;
+    }
+
+    @keyframes chromaticShift {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 300% 50%; }
+    }
+
+    .card-meta-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 3;
+    }
+
+    /* Badges Cromáticos Armonizados en Reposo */
+    .card-badge {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 3px 8px;
+      border-radius: 2px;
+      transition: all 0.2s ease;
+    }
+
+    .badge-gastronomia {
+      background: rgba(255, 158, 0, 0.12);
+      color: #B45309;
+      border: 0.5px solid rgba(255, 158, 0, 0.4);
+    }
+    .badge-senasa {
+      background: rgba(6, 214, 160, 0.12);
+      color: #047857;
+      border: 0.5px solid rgba(6, 214, 160, 0.45);
+    }
+    .badge-tv-open {
+      background: rgba(76, 201, 240, 0.12);
+      color: #001489;
+      border: 0.5px solid rgba(76, 201, 240, 0.4);
+    }
+    .badge-tv-cable {
+      background: rgba(247, 37, 133, 0.1);
+      color: #B8005A;
+      border: 0.5px solid rgba(247, 37, 133, 0.35);
+    }
+    .badge-radio {
+      background: rgba(114, 9, 183, 0.1);
+      color: #7209B7;
+      border: 0.5px solid rgba(114, 9, 183, 0.35);
+    }
+
+    .card-year-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--ink-muted);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* TÍTULO DE TARJETA CON PROYECCIÓN 3D ESTEREOSCÓPICA */
+    .card-h3 {
+      font-family: var(--font-display);
+      font-size: 19px;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      margin-bottom: 8px;
+      line-height: 1.25;
+      position: relative;
+      z-index: 3;
+      text-shadow: 
+        0.5px 0.5px 0px rgba(0, 20, 137, 0.15),
+        1px 1px 0px rgba(247, 37, 133, 0.12);
+      transition: transform 0.25s ease, text-shadow 0.25s ease;
+    }
+
+    .card-tile:hover .card-h3 {
+      transform: translate3d(2px, -1px, 0);
+      text-shadow: 
+        1px 1px 0px rgba(76, 201, 240, 0.3),
+        2px 2px 0px rgba(247, 37, 133, 0.25),
+        3px 3px 6px rgba(17, 21, 31, 0.1);
+    }
+
+    .card-brief {
+      font-size: 13.5px;
+      color: var(--ink-secondary);
+      line-height: 1.5;
+      margin-bottom: 18px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      position: relative;
+      z-index: 3;
+    }
+
+    .card-link-action {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-blue);
+      position: relative;
+      z-index: 3;
+      transition: color 0.2s ease;
+    }
+
+    .card-tile:hover .card-link-action {
+      color: var(--pop-magenta);
+    }
+
+    /* ==========================================================================
+       8. VISTA 2: EXPEDIENTE TÉCNICO INTERNO (TÍTULO 3D FLOTANTE & INFINITY STAMP)
+       ========================================================================== */
+    #vista-expediente {
+      display: none;
+      padding: 40px 0 96px;
+      background: #FFFFFF;
+      min-height: calc(100vh - var(--header-height));
+    }
+
+    .exp-bar {
+      margin-bottom: 32px;
+      padding-bottom: 18px;
+      border-bottom: 0.5px solid var(--hairline);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .exp-columns {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 56px;
+    }
+
+    /* TÍTULO PRINCIPAL DE EXPEDIENTE CON PROYECCIÓN 3D CINEMÁTICA */
+    .exp-title-h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.3rem, 3.8vw, 3.4rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 12px;
+      text-shadow: 
+        1px 1px 0px rgba(0, 20, 137, 0.2),
+        2px 2px 0px rgba(247, 37, 133, 0.16),
+        4px 4px 10px rgba(17, 21, 31, 0.06);
+      animation: text3dFloat 5s ease-in-out infinite alternate;
+      will-change: transform;
+    }
+
+    @keyframes text3dFloat {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-3px); }
+    }
+
+    .exp-subtitle-p {
+      font-size: 16px;
+      color: var(--ink-muted);
+      margin-bottom: 32px;
+    }
+
+    .exp-body-text {
+      color: var(--ink-secondary);
+      font-size: 15.5px;
+      line-height: 1.75;
+    }
+
+    .exp-body-text p {
+      margin-bottom: 20px;
+    }
+
+    .exp-body-text h3 {
+      font-family: var(--font-display);
+      font-size: 21px;
+      font-weight: 600;
+      color: var(--ink-primary);
+      margin: 34px 0 12px;
+    }
+
+    /* Panel Lateral de Ficha Técnica con Sello de Espejo Infinito Circular */
+    .specs-panel {
+      border: 0.5px solid var(--hairline);
+      background: var(--bg-canvas);
+      border-radius: 3px;
+      padding: 22px;
+      position: sticky;
+      top: calc(var(--header-h) + 20px);
+    }
+
+    .specs-panel-title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 0.5px solid var(--hairline);
+      color: var(--ink-primary);
+    }
+
+    .spec-line {
+      margin-bottom: 14px;
+    }
+
+    .spec-line-key {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--ink-muted);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .spec-line-val {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink-primary);
+    }
+
+    /* ESPEJO INFINITO CIRCULAR EN LA FICHA TÉCNICA (SECTOR 2 PEQUEÑO) */
+    .infinity-circle-stamp {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 0.5px solid var(--hairline);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .infinity-circle-lens {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #050810;
+      flex-shrink: 0;
+      box-shadow:
+        inset 0 0 0 1.5px #00F0FF,
+        inset 0 0 4px 1px #00F0FF,
+        inset 0 0 0 4px #070B16,
+        inset 0 0 0 5.5px #7209B7,
+        inset 0 0 6px 1px #7209B7,
+        inset 0 0 0 8px #03050A,
+        inset 0 0 0 9.5px #F72585,
+        inset 0 0 8px 1px #F72585,
+        inset 0 0 12px 4px #000000;
+      animation: infinityGlow 4s ease-in-out infinite alternate;
+    }
+
+    .infinity-circle-text {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      color: var(--ink-secondary);
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+
+    .infinity-circle-text strong {
+      display: block;
+      color: var(--ink-primary);
+      font-size: 11px;
+    }
+
+    .bib-box {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 0.5px solid var(--hairline);
+    }
+
+    .bib-h4 {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-muted);
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .bib-ol {
+      padding-left: 18px;
+      font-size: 13px;
+      color: var(--ink-muted);
+    }
+
+    .bib-ol li {
+      margin-bottom: 10px;
+    }
+
+    .bib-ol a {
+      color: var(--accent-blue);
+      text-decoration: underline;
+    }
+
+    /* FOOTER CORPORATIVO CON REDES COMPLETAS */
+    footer {
+      border-top: 0.5px solid var(--hairline);
+      background: var(--bg-canvas);
+      padding: 48px 0;
+      font-size: 13px;
+      color: var(--ink-muted);
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .footer-socials a {
+      color: var(--ink-secondary);
+      text-decoration: none;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      transition: color 0.2s ease;
+    }
+
+    .footer-socials a:hover {
+      color: var(--pop-magenta);
+    }
+
+    /* ==========================================================================
+       9. RESPONSIVE MÓVIL EXACTO (2 COLUMNAS PARALELAS)
+       ========================================================================== */
+    @media (max-width: 900px) {
+      .hero-cols {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .hero-media-wrapper {
+        max-width: 260px;
+        margin: 0;
+      }
+      .trust-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+      .trust-item:nth-child(2) {
+        border-right: none;
+      }
+      .exp-columns {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .specs-panel {
+        position: static;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 16px;
+      }
+      .two-col-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px;
+      }
+      .card-tile {
+        padding: 14px;
+      }
+      .card-h3 {
+        font-size: 15px;
+      }
+      .card-brief {
+        font-size: 12px;
+        -webkit-line-clamp: 2;
+        margin-bottom: 12px;
+      }
+      .card-link-action {
+        font-size: 10px;
+      }
+      .header-nav {
+        gap: 4px;
+      }
+      .header-nav .button {
+        padding: 7px 11px;
+        font-size: 10.5px;
+      }
+      .brand-text {
+        font-size: 16px;
+      }
+      .infinity-mirror-module {
+        padding: 10px 12px;
+      }
+      .infinity-tunnel-view {
+        width: 48px;
+        height: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. TELÓN TEATRAL DE ENTRADA -->
+  <div id="base-curtain" class="base-curtain">
+    <div class="curtain-title">Pablo Muney</div>
+    <div class="curtain-line"></div>
+  </div>
+
+  <!-- 2. CABECERA PRINCIPAL -->
+  <header>
+    <div class="container" style="width: 100%;">
+      <div class="header-inner">
+        <!-- LOGO ART POP CON SYNE -->
+        <a class="brand-link" onclick="cerrarExpedienteYVolver()">
+          <span class="brand-text">PABLO MUNEY</span>
+        </a>
+
+        <nav class="header-nav">
+          <button class="button ghost" onclick="navegarConOffset('sec-empresas')">Empresas</button>
+          <button class="button ghost" onclick="navegarConOffset('sec-television')">Televisión</button>
+          <button class="button" onclick="navegarConOffset('sec-radio')">Radio</button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       VISTA 1: PORTADA PRINCIPAL
+       ========================================================================== -->
+  <div id="vista-portada">
+
+    <!-- HERO SECTION -->
+    <section class="hero-wrap">
+      <div class="container">
+        <div class="hero-cols">
+          <div>
+            <div class="kicker">
+              <span class="kicker-bar"></span>
+              Plataforma Oficial • Medios & Unidades Comerciales
+            </div>
+            <h1 class="hero-h1">
+              Conducción en pantalla y <em>visión empresarial.</em>
+            </h1>
+            <p class="hero-p">
+              Más de 25 años de trayectoria profesional ininterrumpida en la televisión argentina (Net TV, C5N, El Trece, Pop 101.5). Fundador de la red de franquicias gastronómicas Empanadazas y creador de la patente zoosanitaria Empapets ante el SENASA.
+            </p>
+
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <button class="button solid" onclick="navegarConOffset('sec-television')">Producciones en TV</button>
+              <button class="button" onclick="navegarConOffset('sec-empresas')">Unidades Comerciales</button>
+            </div>
+
+            <!-- ENLACES DE ENTIDAD (GOOGLE KNOWLEDGE GRAPH) -->
+            <div class="entity-badges-row">
+              <a href="https://www.wikidata.org/wiki/Q141598942" target="_blank" rel="noopener" class="chip-entity">
+                <span>🌐</span> Wikidata (Q141598942)
+              </a>
+              <a href="https://www.imdb.com/name/nm18964277/" target="_blank" rel="noopener" class="chip-entity">
+                <span>🎬</span> IMDb: nm18964277
+              </a>
+              <a href="https://www.instagram.com/pablomuneyok/" target="_blank" rel="noopener" class="chip-entity">
+                <span>📸</span> @pablomuneyok
+              </a>
+              <a href="https://www.youtube.com/@pablomuney" target="_blank" rel="noopener" class="chip-entity">
+                <span>▶️</span> YouTube Oficial
+              </a>
+            </div>
+          </div>
+
+          <!-- FOTOGRAFÍA PROPORCIONAL & SECTOR 1: INFINITY MIRROR HERO -->
+          <div>
+            <div class="hero-media-wrapper">
+              <div class="hero-media-inner">
+                <img src="assets/img/pablo-muney.jpg" alt="Pablo Muney - Conductor y Empresario" class="hero-portrait" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80'">
+              </div>
+
+              <!-- SECTOR 1: ESPEJO INFINITO GRANDE (PORTAL DE PROFUNDIDAD) -->
+              <div class="infinity-mirror-module">
+                <div class="infinity-tunnel-view"></div>
+                <div class="infinity-label-group">
+                  <span class="infinity-title">
+                    <span class="infinity-dot"></span>
+                    Trayectoria 1999 → ∞
+                  </span>
+                  <span class="infinity-sub">Registro de Entidad Unificada</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. BARRA INSTITUCIONAL INTEGRADA -->
+    <div class="trust-ribbon">
+      <div class="container">
+        <div class="trust-grid">
+          <div class="trust-item">
+            <span class="trust-title">SENASA</span>
+            <span class="trust-sub">Patente Certificada</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-title">GAF</span>
+            <span class="trust-sub">Franquicia Oficial</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-title">IMDb: nm18964277</span>
+            <span class="trust-sub">9 Títulos en Pantalla</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-title">RTA / PRISMA</span>
+            <span class="trust-sub">Archivo Histórico</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 1: EMPRESAS & PATENTES (2 COLUMNAS EN CELULAR) -->
+    <section class="section-wrap" id="sec-empresas" style="background: #FFFFFF;">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-kicker">Ecosistema de Negocios</span>
+            <h2 class="section-h2">Franquicias & Patentes</h2>
+          </div>
+          <span style="font-family:var(--font-mono); font-size:11px; color:var(--ink-muted);">3 EXPEDIENTES</span>
+        </div>
+
+        <div class="two-col-grid">
+          <!-- Empanadazas -->
+          <div class="card-tile" onclick="abrirExpediente('empanadazas')">
+            <div>
+              <div class="card-meta-top">
+                <span class="card-badge badge-gastronomia">Franquicia GAF</span>
+                <span class="card-year-label">2022 — Pres.</span>
+              </div>
+              <h3 class="card-h3">Empanadazas</h3>
+              <p class="card-brief">Cadena registrada en la Guía Argentina de Franquicias (GAF). Creadores del concepto Miti-Miti (dos sabores en una pieza).</p>
+            </div>
+            <div class="card-link-action">Expediente →</div>
+          </div>
+
+          <!-- Empapets -->
+          <div class="card-tile" onclick="abrirExpediente('empapets')">
+            <div>
+              <div class="card-meta-top">
+                <span class="card-badge badge-senasa">SENASA</span>
+                <span class="card-year-label">2023 — Pres.</span>
+              </div>
+              <h3 class="card-h3">Empapets</h3>
+              <p class="card-brief">Patente de empanadas elaboradas bajo estándar humano aprobadas oficialmente por SENASA para mascotas.</p>
+            </div>
+            <div class="card-link-action">Expediente →</div>
+          </div>
+
+          <!-- YaPelo -->
+          <div class="card-tile" onclick="abrirExpediente('yapelo')">
+            <div>
+              <div class="card-meta-top">
+                <span class="card-badge badge-tv-cable">Capilar</span>
+                <span class="card-year-label">2010 — 2015</span>
+              </div>
+              <h3 class="card-h3">YaPelo!</h3>
+              <p class="card-brief">Firma de estética y recuperación capilar fundada por Pablo Muney, posicionada a nivel nacional y luego transferida.</p>
+            </div>
+            <div class="card-link-action">Expediente →</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2: TELEVISIÓN (LOS 9 PROGRAMAS AUDITADOS EN IMDB) -->
+    <section class="section-wrap" id="sec-television">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-kicker">Trayectoria Audiovisual</span>
+            <h2 class="section-h2">Producciones de Televisión</h2>
+          </div>
+          <span style="font-family:var(--font-mono); font-size:11px; color:var(--ink-muted);">9 FORMATOS</span>
+        </div>
+
+        <div class="two-col-grid">
+          <!-- Biri Biri -->
+          <div class="card-tile" onclick="abrirExpediente('biribiri')">
+            <div>
+              <div class="card-meta-top"><span class="card-badge badge-tv-open">Net TV</span><span class="card-year-label">2023 — Pres.</span></div>
+              <h3 class="card-h3">Biri Biri</h3>
+              <p class="card-brief">Conducción diaria del ciclo de análisis de tendencias digitales, algoritmos y espectáculos a las 19:00 h y medianoche.</p>
+            </div>
+            <div class="card-link-action">Ficha →</div>
+          </div>
+
+          <!-- Más Tarde Imposible -->
+          <div class="card-tile" onclick="abrirExpediente('mastarde')">
+            <div>
+              <div class="card-meta-top"><span class="card-badge badge-tv-cable">C5N</span><span class="card-year-label">2015 — 2020</span></div>
+              <h3 class="card-h3">Más Tarde Imposible</h3>
+              <p class="card-brief">Late-night show de trasnoche (00:30 a 03:00 h) líder en audiencia durante cinco temporadas con humoristas nacionales.</p>
+            </div>
+            <div class="card-link-action">Ficha →</div>
+          </div>
+
+          <!-- Paraíso Terrenal -->
+          <div class="card-tile" onclick="abrirExpediente('paraiso')">
+            <div>
+              <div class="card-meta-top"><span class="card-badge badge-tv-open">El Trece</span><span class="card-year-label">2008 — 2010</span></div>
+              <h3 class="card-h3">Paraíso Terrenal</h3>
+              <p class="card-brief">Conducción y producción independiente para la trasnoche de Canal 13 con Pichu Straneo, Fátima Flórez y Toti Ciliberto.</p>
+            </div>
+            <div class="card-link-action">Ficha →</div>
+          </div>
+
+          <!-- Pampita Online -->
+          <div class="card-tile" onclick="abrirExpediente('pampita')">
+            <div>
+              <div class="card-meta-top"><span class="card-badge badge-tv-open">Net TV</span><span class="card-year-label">2020 — 2021</span></div>
+              <h3 class="card-h3">Pampita Online</h3>
+              <p class="card-brief">Panelista estable durante dos años del magazine diario conducido por Carolina «Pampita» Ardohain.</p>
+            </div>
+            <div class="card-link-action">Ficha →</div>
+          </div>
+
+          <!-- Editando Tele -->
+          <div class="card-tile" onclick="abrirExpediente('editando')">
+            <div>
+              <div class="card-meta-top"><span class="card-badge badge-tv-open">Net TV</span><span class="card-year-label">2021 — 2022</span></div>
+              <h3 class="card-h3">Editando Tele</h3>
+              <p class="card-brief">Panelista en el ciclo de debate, actualidad de farándula y archivo televisivo nacional conducido por Luis Piñeyro.</p>
+            </div>
+            <div class="card-link-action">Ficha →</div>
+          </div>
+
+          <!-- Nicole al mediodía -->
+          <div class="card-tile" onclick="abrirExpediente('nicole')">
+            <div>
+              <div class="card-meta-top"><span class="card-badge badge-tv-cable">KZO</span><span class="card-year-label">2020 — 2021</span></div>
+              <h3 class="card-h3">Nicole al mediodía</h3>
+              <p class="card-brief">Panelista diario en el magazine conducido por Nicole Neumann para la señal KZO Entertainment.</p>
+            </div>
+            <div class="card-link-action">Ficha →</div>
+          </div>
+
+          <!-- La Gran Jugada -->
+          <div class="card-tile" onclick="abrirExpediente('granjugada')">
+            <div>
+              <div class="card-meta-top"><span class="card-badge badge-tv-cable">América Sports</span><span class="card-year-label">2000 — 2002</span></div>
+              <h3 class="card-h3">La Gran Jugada</h3>
+              <p class="card-brief">Conducción deportiva junto a futbolistas internacionales: Paulo Silas, Eduardo Bennett y el «Pipa» Gancedo.</p>
+            </div>
+            <div class="card-link-action">Ficha →</div>
+          </div>
+
+          <!-- Turismo Nacional -->
+          <div class="card-tile" onclick="abrirExpediente('turismo')">
+            <div>
+              <div class="card-meta-top"><span class="card-badge badge-gastronomia">Federal</span><span class="card-year-label">2002 — 2004</span></div>
+              <h3 class="card-h3">Turismo Nacional</h3>
+              <p class="card-brief">Conducción federal durante dos temporadas a sus 19 años recorriendo destinos culturales de la Argentina.</p>
+            </div>
+            <div class="card-link-action">Ficha →</div>
+          </div>
+
+          <!-- Estética y Salud -->
+          <div class="card-tile" onclick="abrirExpediente('estetica')">
+            <div>
+              <div class="card-meta-top"><span class="card-badge badge-tv-cable">Cable</span><span class="card-year-label">2004 — 2008</span></div>
+              <h3 class="card-h3">Estética y Salud</h3>
+              <p class="card-brief">Conducción y coproducción de espacios junto a Carmen Yazalde, Susana Romero y Nora Briozzo.</p>
+            </div>
+            <div class="card-link-action">Ficha →</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 3: RADIO -->
+    <section class="section-wrap" id="sec-radio" style="background:#FFFFFF;">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-kicker">Dial & Frecuencia</span>
+            <h2 class="section-h2">Radiofonía</h2>
+          </div>
+          <span style="font-family:var(--font-mono); font-size:11px; color:var(--ink-muted);">2 CICLOS</span>
+        </div>
+
+        <div class="two-col-grid">
+          <!-- Pop 101.5 -->
+          <div class="card-tile" onclick="abrirExpediente('radiopop')">
+            <div>
+              <div class="card-meta-top"><span class="card-badge badge-radio">Pop 101.5</span><span class="card-year-label">2016</span></div>
+              <h3 class="card-h3">La vuelta Pop</h3>
+              <p class="card-brief">Conducción vespertina en la emisora FM líder del Grupo Indalo acompañando el regreso diario.</p>
+            </div>
+            <div class="card-link-action">Ficha →</div>
+          </div>
+
+          <!-- El Ascenso x 3 -->
+          <div class="card-tile" onclick="abrirExpediente('ascenso')">
+            <div>
+              <div class="card-meta-top"><span class="card-badge badge-tv-cable">Deportes</span><span class="card-year-label">1999 (Inicios)</span></div>
+              <h3 class="card-h3">El Ascenso x 3</h3>
+              <p class="card-brief">Inicios a los 15 años relatando fútbol de ascenso junto a Marcelo Palacios y Daniel Cacioli.</p>
+            </div>
+            <div class="card-link-action">Ficha →</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ==========================================================================
+       VISTA 2: EXPEDIENTE / SUBPÁGINA DETALLADA (TÍTULO 3D FLOTANTE & INFINITY SEAL)
+       ========================================================================== -->
+  <div id="vista-expediente">
+    <div class="container">
+
+      <div class="exp-bar">
+        <button class="button" onclick="cerrarExpedienteYVolver()">
+          ← Volver a la portada
+        </button>
+        <span id="exp-categoria-tag" class="card-badge">EXPEDIENTE OFICIAL</span>
+      </div>
+
+      <div class="exp-columns">
+        <div>
+          <h1 id="exp-titulo" class="exp-title-h1">Título del Expediente</h1>
+          <div id="exp-subtitulo" class="exp-subtitle-p">Subtítulo explicativo</div>
+
+          <div id="exp-contenido" class="exp-body-text"></div>
+
+          <div class="bib-box">
+            <div class="bib-h4">Fuentes Documentales & Bibliografía Verificada</div>
+            <ol id="exp-referencias" class="bib-ol"></ol>
+          </div>
+        </div>
+
+        <div>
+          <div class="specs-panel">
+            <div class="specs-panel-title">Ficha Técnica Oficial</div>
+            <div id="exp-specs"></div>
+
+            <!-- SECTOR 2: SELLO DE ESPEJO INFINITO CIRCULAR EN FICHA TÉCNICA -->
+            <div class="infinity-circle-stamp">
+              <div class="infinity-circle-lens"></div>
+              <div class="infinity-circle-text">
+                <strong>Verificación de Entidad</strong>
+                <span>Grafo Oficial • 1999 → ∞</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER CORPORATIVO CON REDES -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <strong style="color:var(--ink-primary); font-family:var(--font-display); font-size:16px;">PABLO MUNEY</strong>
+          <p style="margin-top:3px;">Plataforma Oficial de Entidad Unificada • © 2026</p>
+        </div>
+
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/pablomuneyok/" target="_blank" rel="noopener">Instagram (@pablomuneyok)</a>
+          <a href="https://www.youtube.com/@pablomuney" target="_blank" rel="noopener">YouTube Oficial</a>
+          <a href="https://www.instagram.com/empanadazas/" target="_blank" rel="noopener">Instagram (@empanadazas)</a>
+          <a href="https://franquiciaempanadazas.com/" target="_blank" rel="noopener">Empanadazas Web</a>
+          <a href="https://www.wikidata.org/wiki/Q141598942" target="_blank" rel="noopener">Wikidata</a>
+          <a href="https://www.imdb.com/name/nm18964277/" target="_blank" rel="noopener">IMDb</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       MOTOR JAVASCRIPT: SMART SCROLL, TELÓN & EXPEDIENTES
+       ========================================================================== -->
+  <script>
+    let posicionPreviaScroll = 0;
+
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const curtain = document.getElementById('base-curtain');
+        if (curtain) curtain.classList.add('curtain-lifted');
+      }, 300);
+    });
+
+    const baseExpedientes = {
+      empanadazas: {
+        titulo: "Empanadazas",
+        subtitulo: "Cadena de franquicias gastronómicas y creadores de la categoría Miti-Miti",
+        categoria: "DESARROLLO COMERCIAL / FRANQUICIAS",
+        cuerpo: `
+          <p><strong>Empanadazas</strong> es un modelo gastronómico fundado por Pablo Muney junto a profesionales culinarios, creado para innovar en el segmento tradicional de empanadas mediante unidades de tamaño XL y venta por peso.</p>
+          <p>La marca introdujo al mercado el concepto registrado <em>«Miti-Miti»</em>: una técnica de manufactura que combina dos rellenos culinarios independientes dentro de una misma pieza, sin mezcla de sabores, identificados visualmente por cubiertas superiores (<em>toppings</em>) a través de un catálogo de más de 50 variedades.</p>
+          <h3>Modelo de Franquicias y Expansión</h3>
+          <p>Inscripta en la Guía Argentina de Franquicias (GAF), la compañía cuenta con procesos operativos estandarizados y proyección de crecimiento hacia 100 puntos de venta.</p>
+        `,
+        specs: [
+          { label: "Fundador / Titular", val: "Pablo Muney" },
+          { label: "Concepto", val: "Miti-Miti (Doble Sabor)" },
+          { label: "Modalidad", val: "Franquicia / Venta por Peso" },
+          { label: "Catálogo", val: "+50 variedades combinadas" },
+          { label: "Instagram Oficial", val: "@empanadazas" },
+          { label: "Registro Oficial", val: "Guía Argentina de Franquicias (GAF)" }
+        ],
+        refs: [
+          { texto: "Ficha oficial de franquicia Empanadazas en la Guía Argentina de Franquicias (GAF)", url: "https://www.gaf-franquicias.com/franquicia/Empanadazas.html" },
+          { texto: "Portal institucional de expansión y franquicias de Empanadazas", url: "https://franquiciaempanadazas.com/" },
+          { texto: "Canal oficial de Instagram de Empanadazas", url: "https://www.instagram.com/empanadazas/" },
+          { texto: "Entrevista en Spotify: «De la TV a las Empanadas, la fórmula de Pablo Muney»", url: "https://open.spotify.com/episode/79WoemmIT7rQqLM6VptLdR" }
+        ]
+      },
+
+      empapets: {
+        titulo: "Empapets (Empadog & Empacat)",
+        subtitulo: "Alimentación animal de estándar humano patentada y avalada por SENASA",
+        categoria: "PATENTE ZOOSANITARIA / INNOVACIÓN",
+        cuerpo: `
+          <p><strong>Empapets</strong> (con sus líneas <em>Empadog</em> y <em>Empacat</em>) es un desarrollo patentado por Pablo Muney que introduce al mercado la primera empanada formulada para la alimentación segura de caninos y felinos.</p>
+          <h3>Certificación y Homologación Sanitaria</h3>
+          <p>Cuenta con la aprobación y registro del Servicio Nacional de Sanidad y Calidad Agroalimentaria (SENASA). Su receta de grado humano elimina ingredientes tóxicos para animales como ajo, cebolla o excesos de sodio.</p>
+        `,
+        specs: [
+          { label: "Patente e Invención", val: "Pablo Muney" },
+          { label: "Organismo Certificador", val: "SENASA (Argentina)" },
+          { label: "Líneas de Producto", val: "Empadog (caninos) / Empacat (felinos)" },
+          { label: "Normativa de Calidad", val: "Estándar de Grado Humano" }
+        ],
+        refs: [
+          { texto: "Ficha técnica y registro comercial en catálogo de franquicia", url: "https://www.gaf-franquicias.com/franquicia/Empanadazas.html" },
+          { texto: "Servicio Nacional de Sanidad y Calidad Agroalimentaria (SENASA Argentina)", url: "https://www.argentina.gob.ar/senasa" }
+        ]
+      },
+
+      yapelo: {
+        titulo: "YaPelo!",
+        subtitulo: "Firma especializada en recuperación capilar y estrategias comerciales",
+        categoria: "COSMÉTICA / GESTIÓN DE MARCA",
+        cuerpo: `
+          <p>Durante la década de 2010, Pablo Muney fundó <strong>YaPelo!</strong>, firma dedicada a tratamientos capilares estéticos en Argentina.</p>
+          <p>Muney lideró el desarrollo de marca y las campañas publicitarias en medios nacionales, logrando consolidar la firma en el mercado hasta su venta a un grupo empresarial.</p>
+        `,
+        specs: [
+          { label: "Fundador", val: "Pablo Muney" },
+          { label: "Período", val: "2010 — 2015" },
+          { label: "Sector", val: "Salud y Cuidado Capilar" },
+          { label: "Estado Actual", val: "Compañía transferida" }
+        ],
+        refs: [
+          { texto: "Reportaje a Pablo Muney sobre el desarrollo de marcas y franquicias", url: "https://open.spotify.com/episode/79WoemmIT7rQqLM6VptLdR" }
+        ]
+      },
+
+      biribiri: {
+        titulo: "Biri Biri",
+        subtitulo: "Ciclo diario de actualidad, redes sociales y humor ácido en Net TV",
+        categoria: "TELEVISIÓN / CONDUCCIÓN",
+        cuerpo: `
+          <p><strong>Biri Biri</strong> es el programa diario conducido por Pablo Muney en la pantalla de <strong>Net TV</strong>. Analiza los fenómenos virales del algoritmo, tendencias de redes y sucesos del espectáculo bajo una perspectiva satírica.</p>
+          <p>Cuenta con doble emisión: en vivo a las 19:00 h y a la medianoche (00:00 h).</p>
+        `,
+        specs: [
+          { label: "Canal", val: "Net TV" },
+          { label: "Rol", val: "Conductor Titular / Creador" },
+          { label: "Período", val: "2023 — Presente" },
+          { label: "Horario", val: "Lunes a Viernes 19:00 y 00:00 h" },
+          { label: "IMDb", val: "Serie Oficial en IMDb" }
+        ],
+        refs: [
+          { texto: "Ficha oficial de la serie Biri Biri en IMDb", url: "https://www.imdb.com/title/tt36465492/" },
+          { texto: "Grilla oficial de programación de Net TV", url: "https://www.canalnet.tv" }
+        ]
+      },
+
+      mastarde: {
+        titulo: "Más Tarde Imposible",
+        subtitulo: "Late-night show de humor que lideró la trasnoche de C5N durante cinco temporadas",
+        categoria: "TELEVISIÓN / TRASNOCHE",
+        cuerpo: `
+          <p>Emitido a través de <strong>C5N</strong> entre 2015 y 2020 de 00:30 a 03:00 h, <strong>Más Tarde Imposible</strong> se consolidó como referente del entretenimiento nocturno en la televisión de noticias argentina.</p>
+          <p>Conducido por Pablo Muney, el ciclo combinó entrevistas de actualidad con mesas de humor integradas por Toti Ciliberto, Alfredo Silva, Fernando Ramírez y Martín Vázquez.</p>
+        `,
+        specs: [
+          { label: "Señal", val: "C5N" },
+          { label: "Conducción", val: "Pablo Muney" },
+          { label: "Período", val: "2015 — 2020 (5 temporadas)" },
+          { label: "Elenco Humorístico", val: "Toti Ciliberto, Alfredo Silva, Fernando Ramírez" }
+        ],
+        refs: [
+          { texto: "Infobae: Cobertura periodística de Más Tarde Imposible", url: "https://www.infobae.com/teleshow/infoshow/2018/02/06/la-ultima-entrevista-en-television-a-debora-perez-volpin/" },
+          { texto: "A24 Primicias Ya: Dialogamos con Pablo Muney sobre su labor periodística", url: "https://www.a24.com/primiciasya/dialogamos-pablo-muney-el-periodista-que-le-hizo-la-ultima-entrevista-debora-perez-volpin-n1552475" }
+        ]
+      },
+
+      paraiso: {
+        titulo: "Paraíso Terrenal",
+        subtitulo: "Ciclo de entretenimiento y humor de producción independiente en El Trece",
+        categoria: "TELEVISIÓN / EL TRECE",
+        cuerpo: `
+          <p>Entre 2008 y 2010, Pablo Muney produjo y condujo <strong>Paraíso Terrenal</strong> para la pantalla de <strong>Canal 13 (El Trece)</strong>.</p>
+          <p>El ciclo marcó un precedente al instalar una propuesta artística de humor y sketches en la trasnoche del canal líder, contando con la participación de Pichu Straneo, Fátima Flórez, Toti Ciliberto y el periodista Chiqui Rubio.</p>
+        `,
+        specs: [
+          { label: "Canal", val: "Canal 13 (El Trece)" },
+          { label: "Rol", val: "Conductor / Productor General" },
+          { label: "Período", val: "2008 — 2010" },
+          { label: "Figuras", val: "Pichu Straneo, Fátima Flórez, Toti Ciliberto" }
+        ],
+        refs: [
+          { texto: "Diario El Día: Reseña de Paraíso Terrenal en El Trece", url: "https://www.eldia.com/nota/2009-10-7-sin-ponerse-colorado" }
+        ]
+      },
+
+      pampita: {
+        titulo: "Pampita Online",
+        subtitulo: "Magazine diario producido por Kuarzo Entertainment Argentina para Net TV",
+        categoria: "TELEVISIÓN / MAGAZINE",
+        cuerpo: `
+          <p>Durante dos temporadas consecutivas (2020–2021), Pablo Muney integró el panel estable de <strong>Pampita Online</strong>, conducido por Carolina «Pampita» Ardohain por Net TV.</p>
+          <p>Muney aportó coberturas de espectáculos, análisis del mundo de los medios y entrevistas en vivo.</p>
+        `,
+        specs: [
+          { label: "Productora", val: "Kuarzo Entertainment" },
+          { label: "Pantalla", val: "Net TV" },
+          { label: "Conducción", val: "Carolina «Pampita» Ardohain" },
+          { label: "Rol", val: "Panelista Estable (2020–2021)" }
+        ],
+        refs: [
+          { texto: "Infobae: Celebración de las temporadas de Pampita Online", url: "https://www.infobae.com/teleshow/2021/10/07/pampita-festejo-los-tres-anos-de-su-programa-y-su-hija-ana-fue-la-invitada-especial/" },
+          { texto: "Ficha oficial de la serie Pampita Online en IMDb", url: "https://www.imdb.com/title/tt10855978/" }
+        ]
+      },
+
+      editando: {
+        titulo: "Editando Tele",
+        subtitulo: "Ciclo de archivo televisivo y actualidad conducido por Luis Piñeyro",
+        categoria: "TELEVISIÓN / ARCHIVO",
+        cuerpo: `
+          <p>Pablo Muney integró el panel de <strong>Editando Tele</strong> en la pantalla de Net TV durante las temporadas 2021 y 2022, aportando miradas analíticas sobre los informes diarios de la televisión argentina.</p>
+        `,
+        specs: [
+          { label: "Canal", val: "Net TV" },
+          { label: "Conducción", val: "Luis Piñeyro" },
+          { label: "Rol", val: "Panelista (2021–2022)" }
+        ],
+        refs: [
+          { texto: "Contenidos de Editando Tele en Net TV", url: "https://www.canalnet.tv" }
+        ]
+      },
+
+      nicole: {
+        titulo: "Nicole al mediodía",
+        subtitulo: "Magazine de actualidad y entrevistas producido por Kuarzo para KZO",
+        categoria: "TELEVISIÓN / KZO",
+        cuerpo: `
+          <p>Durante el período 2020–2021, Muney formó parte del panel diario de <strong>Nicole al mediodía</strong>, conducido por Nicole Neumann para la señal KZO, alternando su labor en pantalla con <em>Pampita Online</em>.</p>
+        `,
+        specs: [
+          { label: "Canal", val: "KZO Entertainment" },
+          { label: "Conducción", val: "Nicole Neumann" },
+          { label: "Rol", val: "Panelista (2020–2021)" }
+        ],
+        refs: [
+          { texto: "Fran Vidal Espectáculos: Pablo Muney entre Nicole y Pampita", url: "https://www.franvidalespectaculos.com/pablo-muney-el-panelista-que-se-divide-entre-nicole-y-pampita/" }
+        ]
+      },
+
+      granjugada: {
+        titulo: "La Gran Jugada con los Atletas de Cristo",
+        subtitulo: "Ciclo deportivo de interés general y entrevistas en América Sports",
+        categoria: "TELEVISIÓN / DEPORTES",
+        cuerpo: `
+          <p>A comienzos de la década de 2000, Pablo Muney encabezó la conducción de <strong>La Gran Jugada</strong> por América Sports, acompañado por los exfutbolistas Paulo Silas, Eduardo Bennett y Leonel «Pipa» Gancedo.</p>
+        `,
+        specs: [
+          { label: "Señal", val: "América Sports" },
+          { label: "Rol", val: "Conductor Titular" },
+          { label: "Período", val: "2000 — 2002" },
+          { label: "Coconductores", val: "Paulo Silas, Eduardo Bennett, Leonel Gancedo" }
+        ],
+        refs: [
+          { texto: "Transmisiones y coberturas de América Sports", url: "https://www.clarin.com" }
+        ]
+      },
+
+      turismo: {
+        titulo: "Turismo Nacional: Recorriendo el País",
+        subtitulo: "Ciclo de viajes y coberturas documentales en provincias argentinas",
+        categoria: "TELEVISIÓN / DOCUMENTAL",
+        cuerpo: `
+          <p>Conducción federal durante dos temporadas recorriendo la geografía argentina a sus 19 años, registrando expresiones culturales y turísticas de todo el territorio nacional.</p>
+        `,
+        specs: [
+          { label: "Formato", val: "Viajes / Documental Federal" },
+          { label: "Rol", val: "Conductor Titular" },
+          { label: "Período", val: "2002 — 2004" }
+        ],
+        refs: [
+          { texto: "Secretaría de Turismo de la Nación Argentina", url: "https://www.argentina.gob.ar/turismo" }
+        ]
+      },
+
+      estetica: {
+        titulo: "Formatos de Estética y Bienestar",
+        subtitulo: "Conducción y coproducción de espacios dedicados a la salud",
+        categoria: "TELEVISIÓN / BIENESTAR",
+        cuerpo: `
+          <p>Entre 2004 y 2008, Pablo alternó su presencia en televisión conduciendo espacios de bienestar junto a figuras como Carmen Yazalde, Susana Romero y Nora Briozzo.</p>
+        `,
+        specs: [
+          { label: "Formato", val: "Salud y Cuidado Estético" },
+          { label: "Rol", val: "Conductor / Coproductor" },
+          { label: "Período", val: "2004 — 2008" },
+          { label: "Copresentadoras", val: "Carmen Yazalde, Susana Romero, Nora Briozzo" }
+        ],
+        refs: [
+          { texto: "Registros de ciclos de salud en televisión argentina", url: "https://www.eldia.com" }
+        ]
+      },
+
+      radiopop: {
+        titulo: "La vuelta Pop (Pop 101.5)",
+        subtitulo: "Tira radial vespertina en la emisora líder del Grupo Indalo",
+        categoria: "RADIO / BROADCAST",
+        cuerpo: `
+          <p>En 2016, Pablo Muney se incorporó a la grilla de <strong>Pop 101.5</strong> como integrante y conductor del ciclo <em>La vuelta Pop</em>, acompañando el regreso diario con información y humor.</p>
+        `,
+        specs: [
+          { label: "Emisora", val: "Pop 101.5 (FM)" },
+          { label: "Grupo", val: "Grupo Indalo" },
+          { label: "Rol", val: "Conductor / Co-conductor" },
+          { label: "Año", val: "2016" }
+        ],
+        refs: [
+          { texto: "TotalMedios: Pablo Muney se incorpora a Pop 101.5", url: "https://www.totalmedios.com/nota/31845/pablo-muney-se-incorpora-a-pop-1015-con-la-vuelta-pop" }
+        ]
+      },
+
+      ascenso: {
+        titulo: "El Ascenso x 3",
+        subtitulo: "Inicios radiales a los 15 años en el periodismo deportivo",
+        categoria: "RADIO / PERIODISMO DEPORTIVO",
+        cuerpo: `
+          <p>A los 15 años de edad, Pablo comenzó formalmente su actividad en los medios como relator de fútbol de ascenso en <strong>El Ascenso x 3</strong> junto a Marcelo Palacios y Daniel Cacioli.</p>
+        `,
+        specs: [
+          { label: "Formato", val: "Relato Deportivo" },
+          { label: "Rol", val: "Relator" },
+          { label: "Inicio", val: "1999 (15 años de edad)" }
+        ],
+        refs: [
+          { texto: "La RZ: Reportaje a Pablo Muney sobre sus inicios en los medios", url: "https://larz.com.ar/noticias/pablo-muney-me-gusta-defender-al-rubro-y-demostrar-que-se-pueden-hacer-cosas-siendo-buena-persona/" }
+        ]
+      }
+    };
+
+    function navegarConOffset(id) {
+      if (document.getElementById('vista-expediente').style.display === 'block') {
+        cerrarExpedienteYVolver();
+      }
+
+      const target = document.getElementById(id);
+      if (!target) return;
+
+      const headerHeight = document.querySelector('header').offsetHeight;
+      const targetPos = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 14;
+
+      window.scrollTo({
+        top: targetPos,
+        behavior: 'smooth'
+      });
+    }
+
+    function abrirExpediente(id) {
+      const data = baseExpedientes[id];
+      if (!data) return;
+
+      posicionPreviaScroll = window.pageYOffset;
+
+      document.getElementById('exp-titulo').textContent = data.titulo;
+      document.getElementById('exp-subtitulo').textContent = data.subtitulo;
+      document.getElementById('exp-categoria-tag').textContent = data.categoria;
+      document.getElementById('exp-contenido').innerHTML = data.cuerpo;
+
+      const specsBox = document.getElementById('exp-specs');
+      specsBox.innerHTML = '';
+      data.specs.forEach(s => {
+        const row = document.createElement('div');
+        row.className = 'spec-line';
+        row.innerHTML = `<span class="spec-line-key">${s.label}</span><span class="spec-line-val">${s.val}</span>`;
+        specsBox.appendChild(row);
+      });
+
+      const refsBox = document.getElementById('exp-referencias');
+      refsBox.innerHTML = '';
+      data.refs.forEach(r => {
+        const li = document.createElement('li');
+        li.innerHTML = `${r.texto} — <a href="${r.url}" target="_blank" rel="noopener">Consultar documento ↗</a>`;
+        refsBox.appendChild(li);
+      });
+
+      document.getElementById('vista-portada').style.display = 'none';
+      document.getElementById('vista-expediente').style.display = 'block';
+      window.scrollTo(0, 0);
+
+      window.location.hash = 'expediente-' + id;
+    }
+
+    function cerrarExpedienteYVolver() {
+      document.getElementById('vista-expediente').style.display = 'none';
+      document.getElementById('vista-portada').style.display = 'block';
+
+      window.scrollTo({
+        top: posicionPreviaScroll,
+        behavior: 'instant'
+      });
+
+      history.pushState("", document.title, window.location.pathname + window.location.search);
+    }
+
+    window.addEventListener('popstate', () => {
+      const hash = window.location.hash;
+      if (hash.startsWith('#expediente-')) {
+        const id = hash.replace('#expediente-', '');
+        abrirExpediente(id);
+      } else {
+        cerrarExpedienteYVolver();
+      }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const hash = window.location.hash;
+      if (hash.startsWith('#expediente-')) {
+        const id = hash.replace('#expediente-', '');
+        abrirExpediente(id);
+      }
+    });
+  </script>
+</body>
+</html>
