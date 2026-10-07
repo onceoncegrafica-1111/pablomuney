@@ -7,6 +7,9 @@
   <meta name="description" content="Plataforma oficial de Pablo Muney. Periodista, conductor de televisión y empresario argentino. Archivo de producciones (Net TV, C5N, El Trece), franquicias Empanadazas y patente zoosanitaria Empapets (SENASA).">
   <link rel="canonical" href="https://onceoncegrafica-1111.github.io/pablomuney/">
 
+  <!-- PRECARGA DE ALTA PRIORIDAD PARA CARGA INSTANTÁNEA DE LA FOTO -->
+  <link rel="preload" as="image" href="./468844748_10163398367635839_6255026655213777972_n%20(1)%20-%20B2B%20Image%20to%20Image%20Ultra.webp" type="image/webp" fetchpriority="high">
+
   <!-- Meta Redes Sociales -->
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Pablo Muney | Plataforma Corporativa Oficial">
@@ -833,7 +836,8 @@
       border: 1px solid rgba(255, 255, 255, 0.12);
       transform-style: preserve-3d;
       perspective: 1000px;
-      transition: transform 0.1s ease-out;
+      transform: rotateY(0deg) rotateX(0deg); /* 100% DE FRENTE AL INICIAR */
+      transition: transform 0.08s ease-out;
     }
 
     .mirror-bezel-frame::before {
@@ -865,22 +869,6 @@
       background: linear-gradient(135deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.02) 40%, rgba(0,0,0,0.5) 100%);
       pointer-events: none;
       z-index: 5;
-    }
-
-    .mirror-branding-overlay {
-      position: absolute;
-      bottom: 24px;
-      font-family: var(--font-mono);
-      font-size: 10.5px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.65);
-      background: rgba(10, 14, 22, 0.6);
-      padding: 4px 14px;
-      border-radius: 20px;
-      border: 0.5px solid rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(8px);
-      z-index: 6;
     }
 
     /* CONSOLA DE CONTACTO EJECUTIVO */
@@ -1404,7 +1392,6 @@
       }
     }
 
-    /* MEJORA 2: 2 RECUADROS POR FILA EN TODAS LAS PANTALLAS MÓVILES (COMPACTO) */
     @media (max-width: 768px) {
       .header-nav .button.ghost {
         display: none;
@@ -1578,7 +1565,7 @@
             </div>
           </div>
 
-          <!-- FOTOGRAFÍA OFICIAL REAL -->
+          <!-- FOTOGRAFÍA OFICIAL REAL CON CARGA INSTANTÁNEA -->
           <div>
             <div class="hero-media-wrapper">
               <div class="hero-media-inner">
@@ -1586,6 +1573,9 @@
                   src="./468844748_10163398367635839_6255026655213777972_n%20(1)%20-%20B2B%20Image%20to%20Image%20Ultra.webp" 
                   alt="Pablo Muney - Conductor y Empresario" 
                   class="hero-portrait" 
+                  loading="eager"
+                  fetchpriority="high"
+                  decoding="sync"
                   onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/onceoncegrafica-1111/pablomuney/main/468844748_10163398367635839_6255026655213777972_n%20(1)%20-%20B2B%20Image%20to%20Image%20Ultra.webp';">
               </div>
             </div>
@@ -1813,7 +1803,7 @@
     </section>
 
     <!-- ==========================================================================
-         SECCIÓN 4: EL GRAN PORTAL INFINITY MIRROR
+         SECCIÓN 4: EL GRAN PORTAL INFINITY MIRROR (TOTALMENTE FRONTAL + GIRO DINÁMICO)
          ========================================================================== -->
     <section class="infinity-portal-section" id="sec-contacto">
       <div class="container">
@@ -1840,7 +1830,6 @@
               <!-- Canvas de Física Lumínica Infinita con PABLO MUNEY -->
               <canvas id="portal-infinity-canvas" width="760" height="760"></canvas>
             </div>
-            <div class="mirror-branding-overlay">Optical Core • Pablo Muney Engine</div>
           </div>
 
           <!-- LADO B: CONSOLA DE CONTACTO EJECUTIVO DE CRISTAL SATINADO -->
@@ -2014,23 +2003,44 @@
     }
 
     // ==========================================================================
-    // MOTOR ÓPTICO DEL ESPEJO INFINITO (PABLO MUNEY AGRANDADO AL TAMAÑO PERFECTO)
+    // MOTOR ÓPTICO DEL ESPEJO INFINITO (TOTALMENTE FRONTAL + MOUSE TRACK + GIROSCOPIO OPUESTO)
     // ==========================================================================
     const pCanvas = document.getElementById('portal-infinity-canvas');
     const pBezel = document.getElementById('portalMirrorBezel');
     let pCtx = pCanvas ? pCanvas.getContext('2d') : null;
     let waveTime = 0;
+    
+    // Inicio perfectamente frontal (0°, 0°)
     let targetTiltX = 0, targetTiltY = 0;
     let currentTiltX = 0, currentTiltY = 0;
+    let usingGyro = false;
 
+    // INTERACCIÓN MOUSE: El espejo gira en torno al movimiento del cursor
     window.addEventListener('mousemove', (e) => {
-      if (!pBezel) return;
+      if (!pBezel || usingGyro) return;
       const rect = pBezel.getBoundingClientRect();
       const cx = rect.left + rect.width / 2;
       const cy = rect.top + rect.height / 2;
-      targetTiltX = (e.clientX - cx) / window.innerWidth;
-      targetTiltY = (e.clientY - cy) / window.innerHeight;
+      const dx = (e.clientX - cx) / (window.innerWidth / 2);
+      const dy = (e.clientY - cy) / (window.innerHeight / 2);
+      targetTiltX = Math.max(-1, Math.min(1, dx));
+      targetTiltY = Math.max(-1, Math.min(1, dy));
     });
+
+    // INTERACCIÓN GIROSCOPIO (MÓVIL / TABLET): Gira hacia la dirección OPUESTA a la que se mueve
+    if (window.DeviceOrientationEvent) {
+      window.addEventListener('deviceorientation', (e) => {
+        if (e.gamma !== null && e.beta !== null) {
+          usingGyro = true;
+          // Inclinación normalizada
+          const normGamma = Math.max(-1, Math.min(1, e.gamma / 30));
+          const normBeta = Math.max(-1, Math.min(1, (e.beta - 45) / 30));
+          // Dirección opuesta exacta:
+          targetTiltX = -normGamma;
+          targetTiltY = -normBeta;
+        }
+      }, { passive: true });
+    }
 
     function renderPortalInfinity() {
       if (!pCtx) return;
@@ -2040,7 +2050,7 @@
       currentTiltY += (targetTiltY - currentTiltY) * 0.08;
 
       if (pBezel) {
-        pBezel.style.transform = `rotateY(${currentTiltX * 18}deg) rotateX(${-currentTiltY * 18}deg)`;
+        pBezel.style.transform = `rotateY(${currentTiltX * 16}deg) rotateX(${-currentTiltY * 16}deg)`;
       }
 
       const W = pCanvas.width;
@@ -2079,7 +2089,7 @@
         } else if (i < 12) {
           r = 247; g = 37; b = 133;
         } else {
-          r = 236; g = 162; b = 68; // Dorado Empanadazas
+          r = 236; g = 162; b = 68;
         }
 
         pCtx.fillStyle = `rgba(${r}, ${g}, ${b}, ${intensity * 0.95})`;
@@ -2094,12 +2104,9 @@
           pCtx.fillRect(px - dotSize/2, py - dotSize/2, dotSize, dotSize);
         }
 
-        // ====================================================================
-        // MEJORA 1: PABLO MUNEY AGRANDADO CON MÁXIMO IMPACTO NEÓN
-        // ====================================================================
+        // PABLO MUNEY EN EL NÚCLEO AL TAMAÑO PERFECTO
         if (i % 2 === 0 && currentScale > 0.08) {
           pCtx.save();
-          // Escala optimizada: de 26 a 34px (con mínimo de 9px)
           const fontSize = Math.max(9, Math.floor(34 * currentScale));
           pCtx.font = `800 ${fontSize}px 'Syne', sans-serif`;
           pCtx.textAlign = 'center';
