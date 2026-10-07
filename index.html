@@ -77,10 +77,10 @@
   }
   </script>
 
-  <!-- Tipografías: Syne (Art Pop Logo), Fraunces (Editorial Serif) & Inter / Space Grotesk -->
+  <!-- Tipografías: Syne, Fraunces, Inter y Space Grotesk -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,600&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,600&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 
   <style>
     /* ==========================================================================
@@ -132,9 +132,9 @@
 
     html {
       background-color: var(--bg-canvas);
+      scroll-behavior: smooth;
     }
 
-    /* FONDO DISRUPTIVO CON ONDAS PSICODÉLICAS & MOIRÉ VISIBLE */
     body {
       background-color: var(--bg-canvas);
       color: var(--ink-primary);
@@ -144,7 +144,7 @@
       overflow-x: hidden;
       
       background-image: 
-        radial-gradient(rgba(180, 83, 9, 0.06) 1.5px, transparent 1.5px),
+        radial-gradient(rgba(180, 83, 9, 0.05) 1.5px, transparent 1.5px),
         url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 60 C30 30, 30 90, 60 60 C90 30, 90 90, 120 60' stroke='rgba(247,37,133,0.035)' stroke-width='1.5' fill='none'/%3E%3Cpath d='M0 30 C30 0, 30 60, 60 30 C90 0, 90 60, 120 30' stroke='rgba(0,240,255,0.035)' stroke-width='1.5' fill='none'/%3E%3Cpath d='M0 90 C30 60, 30 120, 60 90 C90 60, 90 120, 120 90' stroke='rgba(114,9,183,0.035)' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"),
         url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
       background-size: 24px 24px, 120px 120px, 160px 160px;
@@ -161,7 +161,7 @@
       padding: 0 28px;
     }
 
-    /* TELÓN TEATRAL DE ENTRADA CON APERTURA INMEDIATA */
+    /* TELÓN TEATRAL DE ENTRADA */
     .base-curtain {
       background: #FFFFFF;
       height: 100vh;
@@ -261,9 +261,10 @@
     .header-nav {
       display: flex;
       gap: 6px;
+      align-items: center;
     }
 
-    /* BOTONES GENERALES CON FLUJO CROMÁTICO EN MOVIMIENTO */
+    /* BOTONES GENERALES */
     .button {
       position: relative;
       display: inline-flex;
@@ -280,12 +281,16 @@
       color: var(--ink-primary);
       background: #FFFFFF;
       border: 0.5px solid var(--hairline);
-      border-radius: 3px;
+      border-radius: 4px;
       cursor: pointer;
       overflow: hidden;
       white-space: nowrap;
       z-index: 1;
-      transition: color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      transition: color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
     }
 
     .button::after {
@@ -330,17 +335,18 @@
       background: rgba(18, 22, 31, 0.05);
       color: var(--ink-primary);
       box-shadow: none;
+      transform: none;
     }
 
     .button.ghost:hover::after {
       opacity: 0;
     }
 
-    /* BOTÓN DE CONTACTO ESPECÍFICO: ANIMACIÓN NEUTRA PLATINUM / TITANIUM SHEEN */
     .button.btn-contact-exec {
-      background: var(--ink-primary);
+      background: #0E121B;
       color: #FFFFFF;
-      border-color: var(--ink-primary);
+      border-color: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
     }
 
     .button.btn-contact-exec::after {
@@ -354,13 +360,37 @@
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
     }
 
+    /* BOTÓN TRIGGER DEL MENÚ RESPONSIVE MÓVIL */
+    .mobile-menu-trigger {
+      display: none;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      background: #FFFFFF;
+      border: 1px solid var(--hairline);
+      border-radius: 4px;
+      cursor: pointer;
+      color: var(--ink-primary);
+      transition: all 0.2s ease;
+    }
+
+    .mobile-menu-trigger:hover {
+      border-color: var(--pop-magenta);
+      color: var(--pop-magenta);
+    }
+
     @keyframes chromaticRun {
       0% { background-position: 0% 50%; }
       100% { background-position: 300% 50%; }
     }
 
     /* ==========================================================================
-       HERO SECTION (TÍTULO LIMPIO Y SOBRIO)
+       HERO SECTION
        ========================================================================== */
     .hero-wrap {
       padding: 64px 0 54px;
@@ -442,14 +472,14 @@
       border-color: var(--pop-magenta);
       color: var(--pop-purple);
       box-shadow: 0 4px 12px rgba(247, 37, 133, 0.16);
+      transform: translateY(-1px);
     }
 
-    /* Marco de la Foto Real de Pablo Muney */
     .hero-media-wrapper {
       background: var(--bg-surface);
       border: 0.5px solid var(--hairline);
       padding: 8px;
-      border-radius: 3px;
+      border-radius: 4px;
       box-shadow: 0 16px 36px -12px rgba(17, 21, 31, 0.08);
       max-width: 330px;
       margin: 0 auto;
@@ -471,7 +501,7 @@
       display: block;
     }
 
-    /* BARRA INSTITUCIONAL INTEGRADA */
+    /* BARRA INSTITUCIONAL */
     .trust-ribbon {
       background: var(--bg-surface);
       border-bottom: 0.5px solid var(--hairline);
@@ -514,7 +544,7 @@
     }
 
     /* ==========================================================================
-       RECUADROS CON TÍTULOS LIMPIOS Y COLORES VISIBLES EN REPOSO
+       SECCIONES DE TARJETAS (GRID FLUIDO ANTIFALLAS)
        ========================================================================== */
     .section-wrap {
       padding: 72px 0;
@@ -541,23 +571,24 @@
 
     .section-h2 {
       font-family: var(--font-display);
-      font-size: 29px;
+      font-size: clamp(24px, 3vw, 32px);
       font-weight: 600;
       letter-spacing: -0.02em;
     }
 
     .two-col-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 20px;
     }
 
     .card-tile {
-      border-radius: 4px;
+      border-radius: 6px;
       padding: 24px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      min-height: 220px;
       cursor: pointer;
       position: relative;
       overflow: hidden;
@@ -582,10 +613,10 @@
       opacity: 1;
     }
 
-    /* 1. EMPRESAS (ÁMBAR CÁLIDO / EDITORIAL TERRACOTA) */
+    /* 1. EMPRESAS */
     .card-tile.type-empresa {
       background: linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 65%, var(--empresa-bg) 100%);
-      border: 1px solid rgba(180, 83, 9, 0.3);
+      border: 1px solid rgba(180, 83, 9, 0.25);
     }
     .card-tile.type-empresa::before {
       content: "";
@@ -609,10 +640,10 @@
     }
     .card-tile.type-empresa .card-link-action { color: #B45309; }
 
-    /* 2. TELEVISIÓN (CIAN NEÓN / MAGENTA BROADCAST) */
+    /* 2. TELEVISIÓN */
     .card-tile.type-tv {
       background: linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 65%, var(--tv-bg) 100%);
-      border: 1px solid rgba(0, 20, 137, 0.25);
+      border: 1px solid rgba(0, 20, 137, 0.22);
     }
     .card-tile.type-tv::before {
       content: "";
@@ -636,10 +667,10 @@
     }
     .card-tile.type-tv .card-link-action { color: #001489; }
 
-    /* 3. RADIO (ULTRAVIOLETA BROADCAST / GROTESK) */
+    /* 3. RADIO */
     .card-tile.type-radio {
       background: linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 65%, var(--radio-bg) 100%);
-      border: 1px solid rgba(114, 9, 183, 0.28);
+      border: 1px solid rgba(114, 9, 183, 0.25);
     }
     .card-tile.type-radio::before {
       content: "";
@@ -679,7 +710,7 @@
       text-transform: uppercase;
       letter-spacing: 0.06em;
       padding: 3px 8px;
-      border-radius: 2px;
+      border-radius: 3px;
     }
 
     .badge-gastronomia { background: rgba(255, 158, 0, 0.14); color: #B45309; border: 0.5px solid rgba(255, 158, 0, 0.45); }
@@ -730,11 +761,11 @@
     }
 
     /* ==========================================================================
-       SECCIÓN: EL GRAN PORTAL INFINITY MIRROR ENSAMBLADO CON EL FORMULARIO
+       SECCIÓN 4: EL GRAN PORTAL INFINITY MIRROR (CON PABLO MUNEY EN EL NÚCLEO)
        ========================================================================== */
     .infinity-portal-section {
-      padding: 96px 0;
-      background: #04060A;
+      padding: 96px 0 110px;
+      background: radial-gradient(circle at 50% 20%, #0d111a 0%, #04060A 80%);
       color: #FFFFFF;
       position: relative;
       overflow: hidden;
@@ -742,63 +773,138 @@
       scroll-margin-top: var(--header-h);
     }
 
-    .portal-container {
+    .infinity-portal-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+    }
+
+    .portal-header {
+      text-align: center;
+      margin-bottom: 48px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .portal-h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.8vw, 3rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+
+    .portal-dual-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      position: relative;
+      z-index: 10;
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    .portal-mirror-monolith {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       position: relative;
-      text-align: center;
     }
 
-    .portal-stage {
+    .mirror-bezel-frame {
       position: relative;
       width: 100%;
-      max-width: 720px;
+      max-width: 480px;
       aspect-ratio: 1 / 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 24px;
+      border-radius: 50%;
+      background: #000000;
+      padding: 8px;
+      box-shadow: 
+        0 30px 80px rgba(0, 0, 0, 0.9),
+        0 0 50px rgba(0, 240, 255, 0.25),
+        0 0 80px rgba(247, 37, 133, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      transform-style: preserve-3d;
+      perspective: 1000px;
+      transition: transform 0.1s ease-out;
+    }
+
+    .mirror-bezel-frame::before {
+      content: "";
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      background: conic-gradient(from 180deg at 50% 50%, rgba(0,240,255,0.7) 0deg, rgba(247,37,133,0.3) 120deg, rgba(236,162,68,0.6) 240deg, rgba(0,240,255,0.7) 360deg);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      padding: 2.5px;
+      pointer-events: none;
     }
 
     #portal-infinity-canvas {
-      position: absolute;
-      inset: 0;
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      box-shadow: 
-        0 0 90px rgba(0, 240, 255, 0.5),
-        inset 0 0 70px rgba(247, 37, 133, 0.4);
+      display: block;
+      background: #020306;
     }
 
-    .portal-optical-bezel {
+    .mirror-specular-glass {
       position: absolute;
-      inset: -4px;
+      inset: 8px;
       border-radius: 50%;
-      border: 2px solid rgba(0, 240, 255, 0.65);
-      box-shadow: 0 0 35px rgba(0, 240, 255, 0.4), inset 0 0 35px rgba(0, 0, 0, 0.95);
+      background: linear-gradient(135deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.02) 40%, rgba(0,0,0,0.5) 100%);
       pointer-events: none;
       z-index: 5;
     }
 
-    /* FORMULARIO CRISTALINO HIPER-TRANSLÚCIDO (DEJA VER EL VÓRTICE CORRER POR DETRÁS) */
+    .mirror-branding-overlay {
+      position: absolute;
+      bottom: 24px;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.65);
+      background: rgba(10, 14, 22, 0.6);
+      padding: 4px 14px;
+      border-radius: 20px;
+      border: 0.5px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      z-index: 6;
+    }
+
+    /* CONSOLA DE CONTACTO EJECUTIVO */
     .portal-form-card {
       position: relative;
-      z-index: 10;
-      width: 82%;
-      max-width: 440px;
-      background: rgba(4, 6, 12, 0.42); /* Translúcido para revelar el espejo detrás */
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(0, 240, 255, 0.35);
-      border-radius: 8px;
-      padding: 34px 30px;
+      background: rgba(12, 16, 26, 0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 12px;
+      padding: 38px 36px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
       box-shadow: 
-        0 24px 60px rgba(0, 0, 0, 0.75),
-        inset 0 0 25px rgba(247, 37, 133, 0.15);
+        0 24px 60px rgba(0, 0, 0, 0.7),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
       text-align: left;
+    }
+
+    .portal-form-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(circle at top left, rgba(0, 240, 255, 0.08), transparent 60%);
+      pointer-events: none;
     }
 
     .portal-form-title {
@@ -808,65 +914,93 @@
       letter-spacing: -0.02em;
       color: #FFFFFF;
       margin-bottom: 6px;
-      text-align: center;
     }
 
     .portal-form-subtitle {
       font-family: var(--font-mono);
       font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       color: var(--pop-cyan);
-      text-align: center;
-      margin-bottom: 24px;
+      margin-bottom: 26px;
     }
 
     .form-group {
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
 
     .form-label {
       font-family: var(--font-mono);
       font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: #CBD5E1;
+      letter-spacing: 0.06em;
+      color: #94A3B8;
       display: block;
-      margin-bottom: 5px;
+      margin-bottom: 6px;
     }
 
     .form-input, .form-textarea {
       width: 100%;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      border-radius: 3px;
-      padding: 10px 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 5px;
+      padding: 12px 14px;
       color: #FFFFFF;
       font-family: var(--font-body);
-      font-size: 14px;
-      transition: border-color 0.2s, background 0.2s;
+      font-size: 14.5px;
+      transition: all 0.25s ease;
     }
 
     .form-input:focus, .form-textarea:focus {
       outline: none;
       border-color: var(--pop-cyan);
-      background: rgba(255, 255, 255, 0.12);
-      box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 0 16px rgba(0, 240, 255, 0.25);
     }
 
     .form-textarea {
       resize: vertical;
-      min-height: 80px;
+      min-height: 90px;
+    }
+
+    .btn-submit-master {
+      width: 100%;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 24px;
+      border-radius: 50px;
+      background: #FFFFFF;
+      color: #0E121B;
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      overflow: hidden;
+      margin-top: 10px;
+      transition: all 0.3s var(--ease-smooth);
+      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-submit-master:hover {
+      background: var(--pop-cyan);
+      color: #000;
+      box-shadow: 0 6px 30px rgba(0, 240, 255, 0.5);
+      transform: translateY(-2px);
     }
 
     /* ==========================================================================
-       VISTA 2: EXPEDIENTE TÉCNICO INTERNO (TÍTULO CON EXTRUSIÓN 3D FACETADA SÓLIDA)
+       VISTA 2: EXPEDIENTE TÉCNICO INTERNO
        ========================================================================== */
     #vista-expediente {
       display: none;
       padding: 40px 0 96px;
       background: #FFFFFF;
-      min-height: calc(100vh - var(--header-height));
+      min-height: calc(100vh - var(--header-h));
     }
 
     .exp-bar {
@@ -884,7 +1018,6 @@
       gap: 56px;
     }
 
-    /* EXTRUSIÓN ISOMÉTRICA SÓLIDA FACETADA (IDÉNTICA A LA MUESTRA) */
     .exp-title-h1 {
       font-family: var(--font-display);
       font-size: clamp(2.4rem, 4vw, 3.6rem);
@@ -892,17 +1025,16 @@
       letter-spacing: -0.02em;
       line-height: 1.1;
       margin-bottom: 14px;
-      color: #0E121B; /* Letra enteramente negra */
+      color: #0E121B;
       text-shadow: 
         1px 1px 0px #E5E7EB,
         2px 2px 0px #D1D5DB,
         3px 3px 0px #9CA3AF,
         4px 4px 0px #6B7280,
         5px 5px 0px #4B5563,
-        6px 6px 0px #374151; /* Proyección física facetada continua */
+        6px 6px 0px #374151;
     }
 
-    /* CÁPSULA OBSIDIANA PARA EL LOGO SVG DE EMPANADAZAS */
     .empanadazas-brand-capsule {
       background: #10141D;
       padding: 22px 32px;
@@ -946,7 +1078,7 @@
     }
 
     .exp-body-text a {
-      color: var(--accent-blue);
+      color: var(--tv-accent);
       text-decoration: underline;
       font-weight: 600;
     }
@@ -954,7 +1086,7 @@
     .specs-panel {
       border: 0.5px solid var(--hairline);
       background: var(--bg-canvas);
-      border-radius: 3px;
+      border-radius: 4px;
       padding: 22px;
       position: sticky;
       top: calc(var(--header-h) + 20px);
@@ -1019,41 +1151,44 @@
     }
 
     .bib-ol a {
-      color: var(--accent-blue);
+      color: var(--tv-accent);
       text-decoration: underline;
     }
 
     /* ==========================================================================
-       ATAJOS RÁPIDOS FLOTANTES SINCRONIZADOS (APARECEN JUNTOS Y RÁPIDO)
+       DOCK FLOTANTE CON SAFE-MARGIN
        ========================================================================== */
     .quick-actions-dock {
       position: fixed;
-      bottom: 24px;
-      right: 24px;
+      bottom: calc(20px + env(safe-area-inset-bottom));
+      right: calc(20px + env(safe-area-inset-right));
       z-index: 950;
       display: flex;
       flex-direction: column;
       gap: 10px;
       opacity: 0;
       visibility: hidden;
-      transition: opacity 0.16s ease, visibility 0.16s ease;
+      transform: translateY(12px);
+      transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
       pointer-events: none;
     }
 
     .quick-actions-dock.active {
       opacity: 1;
       visibility: visible;
+      transform: translateY(0);
       pointer-events: auto;
     }
 
     .quick-btn {
       width: 44px;
       height: 44px;
-      border-radius: 4px;
-      background: #10141D;
+      border-radius: 50%;
+      background: rgba(16, 20, 29, 0.92);
+      backdrop-filter: blur(12px);
       color: #FFFFFF;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.28);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1061,19 +1196,136 @@
       font-family: var(--font-mono);
       font-size: 15px;
       font-weight: 700;
-      transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+      transition: all 0.2s ease;
     }
 
     .quick-btn:hover {
       background: #FFFFFF;
-      color: #001489;
-      border-color: #001489;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 22px rgba(0, 20, 137, 0.25);
+      color: #0E121B;
+      border-color: #FFFFFF;
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
     }
 
     .quick-btn:active {
       transform: scale(0.95);
+    }
+
+    /* ==========================================================================
+       POPUP MODAL RESPONSIVE MÓVIL (DRAWER GLOSSY LEONARDO STYLE)
+       ========================================================================== */
+    .mobile-popup-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 6, 12, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      z-index: 10000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .mobile-popup-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-popup-dialog {
+      background: #0E121B;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(0, 240, 255, 0.1);
+      border-radius: 12px;
+      width: 100%;
+      max-width: 380px;
+      padding: 32px 24px 28px;
+      position: relative;
+      text-align: center;
+      transform: translateY(20px) scale(0.96);
+      transition: transform 0.3s var(--ease-smooth);
+    }
+
+    .mobile-popup-overlay.open .mobile-popup-dialog {
+      transform: translateY(0) scale(1);
+    }
+
+    .mobile-popup-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #FFFFFF;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .mobile-popup-close:hover {
+      background: var(--pop-magenta);
+      border-color: var(--pop-magenta);
+    }
+
+    .mobile-popup-brand {
+      font-family: var(--font-logo);
+      font-size: 19px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      margin-bottom: 22px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-popup-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .mobile-popup-nav button {
+      width: 100%;
+      padding: 13px 18px;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #FFFFFF;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .mobile-popup-nav button:hover, .mobile-popup-nav button:active {
+      background: var(--pop-cyan);
+      border-color: var(--pop-cyan);
+      color: #000000;
+      box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+    }
+
+    .mobile-popup-nav button.btn-destacado {
+      background: linear-gradient(90deg, #F72585, #7209B7);
+      border-color: transparent;
+      color: #FFFFFF;
+      margin-top: 6px;
     }
 
     /* FOOTER */
@@ -1083,6 +1335,8 @@
       padding: 48px 0;
       font-size: 13px;
       color: var(--ink-muted);
+      position: relative;
+      z-index: 20;
     }
 
     .footer-content {
@@ -1112,15 +1366,15 @@
     }
 
     /* ==========================================================================
-       RESPONSIVE MÓVIL EXACTO (2 COLUMNAS PARALELAS)
+       RESPONSIVE MASTER
        ========================================================================== */
-    @media (max-width: 900px) {
+    @media (max-width: 980px) {
       .hero-cols {
         grid-template-columns: 1fr;
         gap: 36px;
       }
       .hero-media-wrapper {
-        max-width: 270px;
+        max-width: 280px;
         margin: 0;
       }
       .trust-grid {
@@ -1129,6 +1383,13 @@
       }
       .trust-item:nth-child(2) {
         border-right: none;
+      }
+      .portal-dual-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .mirror-bezel-frame {
+        max-width: 380px;
       }
       .exp-columns {
         grid-template-columns: 1fr;
@@ -1140,50 +1401,41 @@
     }
 
     @media (max-width: 768px) {
+      .header-nav .button.ghost {
+        display: none; /* Se ocultan de la barra para dar paso al botón Popup */
+      }
+      .mobile-menu-trigger {
+        display: inline-flex;
+      }
       .container {
-        padding: 0 16px;
+        padding: 0 18px;
       }
       .two-col-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 12px;
+        grid-template-columns: 1fr !important;
       }
       .card-tile {
-        padding: 14px;
+        padding: 18px;
+        min-height: auto;
       }
       .card-h3 {
-        font-size: 15px;
-      }
-      .card-brief {
-        font-size: 12px;
-        -webkit-line-clamp: 2;
-        margin-bottom: 12px;
-      }
-      .card-link-action {
-        font-size: 10px;
-      }
-      .header-nav {
-        gap: 4px;
-      }
-      .header-nav .button {
-        padding: 7px 11px;
-        font-size: 10.5px;
-      }
-      .brand-text {
-        font-size: 16px;
-      }
-      .portal-stage {
-        max-width: 100%;
+        font-size: 17px;
       }
       .portal-form-card {
-        padding: 24px 18px;
-        width: 92%;
+        padding: 26px 20px;
+      }
+      .mirror-bezel-frame {
+        max-width: 310px;
+      }
+      .quick-actions-dock {
+        bottom: 16px;
+        right: 16px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- 1. TELÓN TEATRAL DE ENTRADA CON APERTURA FORZOSA INMEDIATA -->
+  <!-- 1. TELÓN TEATRAL DE ENTRADA -->
   <div id="base-curtain" class="base-curtain">
     <div class="curtain-title">Pablo Muney</div>
     <div class="curtain-line"></div>
@@ -1202,10 +1454,40 @@
           <button class="button ghost" onclick="navegarDesdeCualquierLugar('sec-television')">Televisión</button>
           <button class="button ghost" onclick="navegarDesdeCualquierLugar('sec-radio')">Radio</button>
           <button class="button solid btn-contact-exec" onclick="navegarDesdeCualquierLugar('sec-contacto')">Contacto</button>
+          
+          <!-- Botón de apertura del Menú Popup Móvil -->
+          <button class="mobile-menu-trigger" onclick="abrirMenuMobile()" aria-label="Abrir menú de navegación">
+            <span>☰</span> Menú
+          </button>
         </nav>
       </div>
     </div>
   </header>
+
+  <!-- ==========================================================================
+       POPUP MODAL RESPONSIVE MÓVIL
+       ========================================================================== -->
+  <div class="mobile-popup-overlay" id="mobileMenuPopup" onclick="cerrarMenuMobileOutside(event)">
+    <div class="mobile-popup-dialog">
+      <button class="mobile-popup-close" onclick="cerrarMenuMobile()" aria-label="Cerrar menú">✕</button>
+      <div class="mobile-popup-brand">PABLO MUNEY</div>
+      
+      <div class="mobile-popup-nav">
+        <button onclick="navegarYModal('sec-empresas')">
+          <span>Empresas & Franquicias</span> <span>→</span>
+        </button>
+        <button onclick="navegarYModal('sec-television')">
+          <span>Televisión (+25 Años)</span> <span>→</span>
+        </button>
+        <button onclick="navegarYModal('sec-radio')">
+          <span>Radiofonía</span> <span>→</span>
+        </button>
+        <button class="btn-destacado" onclick="navegarYModal('sec-contacto')">
+          <span>✉ Contacto Directo</span> <span>→</span>
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- ==========================================================================
        VISTA 1: PORTADA PRINCIPAL
@@ -1251,7 +1533,7 @@
             </div>
           </div>
 
-          <!-- FOTOGRAFÍA OFICIAL REAL DESDE GITHUB (ENLACE RELATIVO + RAW GITHUB FALLBACK) -->
+          <!-- FOTOGRAFÍA OFICIAL REAL -->
           <div>
             <div class="hero-media-wrapper">
               <div class="hero-media-inner">
@@ -1291,7 +1573,7 @@
       </div>
     </div>
 
-    <!-- SECCIÓN 1: EMPRESAS & PATENTES (FONDO ÁMBAR/TERRACOTA) -->
+    <!-- SECCIÓN 1: EMPRESAS & PATENTES -->
     <section class="section-wrap" id="sec-empresas" style="background: #FFFFFF;">
       <div class="container">
         <div class="section-header">
@@ -1345,7 +1627,7 @@
       </div>
     </section>
 
-    <!-- SECCIÓN 2: TELEVISIÓN (FONDO BROADCAST CIAN/AZUL) -->
+    <!-- SECCIÓN 2: TELEVISIÓN -->
     <section class="section-wrap" id="sec-television">
       <div class="container">
         <div class="section-header">
@@ -1450,7 +1732,7 @@
       </div>
     </section>
 
-    <!-- SECCIÓN 3: RADIO (FONDO ACÚSTICO ULTRAVIOLETA) -->
+    <!-- SECCIÓN 3: RADIO -->
     <section class="section-wrap" id="sec-radio" style="background:#FFFFFF;">
       <div class="container">
         <div class="section-header">
@@ -1486,67 +1768,75 @@
     </section>
 
     <!-- ==========================================================================
-         SECCIÓN 4: EL GRAN PORTAL INFINITY MIRROR (FORMULARIO EMPRESARIAL)
+         SECCIÓN 4: EL GRAN PORTAL INFINITY MIRROR (CON PABLO MUNEY EN EL NÚCLEO)
          ========================================================================== -->
     <section class="infinity-portal-section" id="sec-contacto">
       <div class="container">
-        <div class="portal-container">
+        
+        <div class="portal-header">
+          <span class="kicker" style="justify-content:center; color:var(--pop-cyan);">
+            <span class="kicker-bar" style="background:var(--pop-cyan);"></span>
+            Canal de Comunicación Directo
+            <span class="kicker-bar" style="background:var(--pop-cyan);"></span>
+          </span>
+          <h2 class="portal-h2">
+            Alianzas, Conducción & Negocios
+          </h2>
+        </div>
+
+        <div class="portal-dual-layout">
           
-          <div style="margin-bottom: 24px;">
-            <span class="kicker" style="justify-content:center; color:var(--pop-cyan);">
-              <span class="kicker-bar" style="background:var(--pop-cyan);"></span>
-              Canal de Comunicación Directo
-              <span class="kicker-bar" style="background:var(--pop-cyan);"></span>
-            </span>
-            <h2 style="font-family:var(--font-display); font-size:clamp(2rem, 3.5vw, 2.8rem); font-weight:600; letter-spacing:-0.02em;">
-              Alianzas, Conducción & Negocios
-            </h2>
+          <!-- LADO A: TÓTEM DEL ESPEJO INFINITO FÍSICO INTERACTIVO -->
+          <div class="portal-mirror-monolith">
+            <div class="mirror-bezel-frame" id="portalMirrorBezel">
+              <!-- Cristal Espía Semitransparente -->
+              <div class="mirror-specular-glass"></div>
+              
+              <!-- Canvas de Física Lumínica Infinita con PABLO MUNEY -->
+              <canvas id="portal-infinity-canvas" width="760" height="760"></canvas>
+            </div>
+            <div class="mirror-branding-overlay">Optical Core • Pablo Muney Engine</div>
           </div>
 
-          <div class="portal-stage">
-            <!-- CANVAS CON ONDA CONTINUA Y DESVANECIMIENTO PERIMETRAL -->
-            <canvas id="portal-infinity-canvas" width="720" height="720"></canvas>
-            <div class="portal-optical-bezel"></div>
+          <!-- LADO B: CONSOLA DE CONTACTO EJECUTIVO DE CRISTAL SATINADO -->
+          <div class="portal-form-card">
+            <h3 class="portal-form-title">Contacto Ejecutivo</h3>
+            <p class="portal-form-subtitle">Enlace Directo con Pablo Muney</p>
 
-            <!-- FORMULARIO DE CRISTAL TRASLÚCIDO ENSAMBLADO EN EL CENTRO -->
-            <div class="portal-form-card">
-              <h3 class="portal-form-title">Contacto Ejecutivo</h3>
-              <p class="portal-form-subtitle">Enlace Directo con Pablo Muney</p>
+            <form action="https://formsubmit.co/diseno.graficoindustrial@gmail.com" method="POST">
+              <input type="hidden" name="_subject" value="Nuevo Mensaje Corporativo desde PabloMuney.com">
+              <input type="hidden" name="_captcha" value="false">
 
-              <form action="https://formsubmit.co/diseno.graficoindustrial@gmail.com" method="POST">
-                <input type="hidden" name="_subject" value="Nuevo Mensaje Corporativo desde PabloMuney.com">
-                <input type="hidden" name="_captcha" value="false">
+              <div class="form-group">
+                <label class="form-label">Nombre y Apellido</label>
+                <input type="text" name="nombre" class="form-input" placeholder="Tu nombre o empresa" required>
+              </div>
 
-                <div class="form-group">
-                  <label class="form-label">Nombre y Apellido</label>
-                  <input type="text" name="nombre" class="form-input" placeholder="Tu nombre o empresa" required>
-                </div>
+              <div class="form-group">
+                <label class="form-label">Teléfono / WhatsApp</label>
+                <input type="tel" name="telefono" class="form-input" placeholder="+54 9 11 ..." required>
+              </div>
 
-                <div class="form-group">
-                  <label class="form-label">Teléfono / WhatsApp</label>
-                  <input type="tel" name="telefono" class="form-input" placeholder="+54 9 11 ..." required>
-                </div>
+              <div class="form-group">
+                <label class="form-label">Propuesta o Consulta</label>
+                <textarea name="mensaje" class="form-textarea" placeholder="Detalle de la propuesta comercial, franquicias o conducción..." required></textarea>
+              </div>
 
-                <div class="form-group">
-                  <label class="form-label">Propuesta o Consulta</label>
-                  <textarea name="mensaje" class="form-textarea" placeholder="Detalle de la propuesta comercial, franquicias o conducción..." required></textarea>
-                </div>
-
-                <button type="submit" class="button solid btn-contact-exec" style="width:100%; justify-content:center; padding:12px; margin-top:6px;">
-                  Enviar Propuesta Directa →
-                </button>
-              </form>
-            </div>
+              <button type="submit" class="btn-submit-master">
+                Enviar Propuesta Directa →
+              </button>
+            </form>
           </div>
 
         </div>
+
       </div>
     </section>
 
   </div>
 
   <!-- ==========================================================================
-       VISTA 2: EXPEDIENTE / SUBPÁGINA DETALLADA (SMART RETURN)
+       VISTA 2: EXPEDIENTE / SUBPÁGINA DETALLADA
        ========================================================================== -->
   <div id="vista-expediente">
     <div class="container">
@@ -1560,7 +1850,7 @@
 
       <div class="exp-columns">
         <div>
-          <!-- CONTENEDOR DINÁMICO DE TÍTULO O LOGO SVG OFICIAL -->
+          <!-- Contenedor dinámico de título o logo SVG -->
           <div id="exp-titulo-container">
             <h1 id="exp-titulo" class="exp-title-h1">Título del Expediente</h1>
           </div>
@@ -1616,6 +1906,11 @@
        MOTORES JS: FÍSICA CINEMÁTICA Y NAVEGACIÓN PRECISA
        ========================================================================== -->
   <script>
+    // Configuración para que el navegador no sobreescriba el scroll arbitrariamente
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+
     let posicionPreviaScroll = 0;
 
     function levantarTelonSeguro() {
@@ -1649,18 +1944,60 @@
     }
 
     // ==========================================================================
-    // SIMULADOR ÓPTICO REAL DE ESPEJO INFINITO: CINEMÁTICO PARAMOUNT
+    // POPUP MODAL MÓVIL
+    // ==========================================================================
+    function abrirMenuMobile() {
+      const popup = document.getElementById('mobileMenuPopup');
+      if (popup) popup.classList.add('open');
+    }
+
+    function cerrarMenuMobile() {
+      const popup = document.getElementById('mobileMenuPopup');
+      if (popup) popup.classList.remove('open');
+    }
+
+    function cerrarMenuMobileOutside(e) {
+      if (e.target.id === 'mobileMenuPopup') {
+        cerrarMenuMobile();
+      }
+    }
+
+    function navegarYModal(seccionId) {
+      cerrarMenuMobile();
+      setTimeout(() => {
+        navegarDesdeCualquierLugar(seccionId);
+      }, 100);
+    }
+
+    // ==========================================================================
+    // MOTOR ÓPTICO DEL ESPEJO INFINITO CON "PABLO MUNEY" EN PROFUNDIDAD 3D
     // ==========================================================================
     const pCanvas = document.getElementById('portal-infinity-canvas');
-    let pCtx = null;
-    if (pCanvas) {
-      pCtx = pCanvas.getContext('2d');
-    }
+    const pBezel = document.getElementById('portalMirrorBezel');
+    let pCtx = pCanvas ? pCanvas.getContext('2d') : null;
     let waveTime = 0;
+    let targetTiltX = 0, targetTiltY = 0;
+    let currentTiltX = 0, currentTiltY = 0;
+
+    window.addEventListener('mousemove', (e) => {
+      if (!pBezel) return;
+      const rect = pBezel.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      targetTiltX = (e.clientX - cx) / window.innerWidth;
+      targetTiltY = (e.clientY - cy) / window.innerHeight;
+    });
 
     function renderPortalInfinity() {
       if (!pCtx) return;
-      waveTime += 0.007; // Frecuencia cinemática lenta, noble y suave
+      waveTime += 0.012;
+
+      currentTiltX += (targetTiltX - currentTiltX) * 0.08;
+      currentTiltY += (targetTiltY - currentTiltY) * 0.08;
+
+      if (pBezel) {
+        pBezel.style.transform = `rotateY(${currentTiltX * 18}deg) rotateX(${-currentTiltY * 18}deg)`;
+      }
 
       const W = pCanvas.width;
       const H = pCanvas.height;
@@ -1670,67 +2007,86 @@
       pCtx.fillStyle = '#020306';
       pCtx.fillRect(0, 0, W, H);
 
-      const totalRings = 24;
-      const maxRadius = W / 2 - 24;
+      const totalRings = 28;
+      const maxRadius = W / 2 - 28;
 
       for (let i = 0; i < totalRings; i++) {
-        const baseScale = 1 / (1 + i * 0.12);
+        const baseScale = Math.pow(0.89, i);
+        if (baseScale < 0.01) break;
 
-        // Ecuación de onda óptica doble suave sin tirones
-        const wave = Math.sin(waveTime * 0.9 - i * 0.18) * 0.045;
+        const wave = Math.sin(waveTime - i * 0.22) * 0.035;
         const currentScale = baseScale * (1 + wave);
         const radius = maxRadius * currentScale;
 
-        // Decaimiento exponencial fotónico
-        const baseIntensity = Math.pow(0.85, i);
-        if (baseIntensity < 0.01) break;
+        const parallaxOffsetDistance = i * 8.5;
+        const ringCx = cx + currentTiltX * parallaxOffsetDistance;
+        const ringCy = cy + currentTiltY * parallaxOffsetDistance;
 
-        const pulse = 1 + 0.18 * Math.sin(waveTime * 0.9 - i * 0.18);
-        
-        // Desvanecimiento suave en el borde exterior
-        const distRatio = radius / maxRadius;
-        const edgeFade = distRatio > 0.8 ? Math.max(0, 1 - (distRatio - 0.8) / 0.2) : 1;
-        const intensity = Math.min(1, baseIntensity * pulse * edgeFade);
+        const decay = Math.pow(0.86, i);
+        const pulse = 1 + 0.15 * Math.sin(waveTime * 1.2 - i * 0.2);
+        const intensity = Math.min(1, decay * pulse);
 
-        // FÍSICA REAL: CUANTO MÁS LEJOS, MÁS PEQUEÑOS Y FINOS SON LOS LEDS (DE 4.2px A 0.8px)
-        const dotSize = Math.max(0.8, 4.2 * Math.pow(currentScale, 1.4));
-        const dotCount = Math.max(12, Math.floor(56 * currentScale));
+        const dotSize = Math.max(1, 4.6 * Math.pow(currentScale, 1.2));
+        const dotCount = Math.max(14, Math.floor(64 * currentScale));
 
-        // Gradiente cinemático de luz
         let r, g, b;
         if (i < 4) {
-          r = Math.floor(210);
-          g = 255;
-          b = 255;
-        } else if (i < 11) {
-          r = 0;
-          g = Math.floor(240 - (i - 4) * 20);
-          b = 255;
+          r = 0; g = 240; b = 255;
+        } else if (i < 12) {
+          r = 247; g = 37; b = 133;
         } else {
-          r = Math.floor(120 + (i - 11) * 8);
-          g = Math.floor(10);
-          b = Math.floor(210 - (i - 11) * 7);
+          r = 236; g = 162; b = 68; // Dorado Empanadazas
         }
 
-        pCtx.fillStyle = `rgba(${r}, ${g}, ${b}, ${intensity * 0.98})`;
-        pCtx.shadowColor = `rgba(${r}, ${g}, ${b}, ${intensity * 0.9})`;
-        pCtx.shadowBlur = Math.max(1.5, 9 * currentScale);
+        pCtx.fillStyle = `rgba(${r}, ${g}, ${b}, ${intensity * 0.95})`;
+        pCtx.shadowColor = `rgba(${r}, ${g}, ${b}, ${intensity * 0.85})`;
+        pCtx.shadowBlur = Math.max(2, 10 * currentScale);
 
+        // Anillo de LEDs concéntrico
         for (let d = 0; d < dotCount; d++) {
-          const a = (d / dotCount) * Math.PI * 2;
-          const px = cx + Math.cos(a) * radius;
-          const py = cy + Math.sin(a) * radius;
+          const angle = (d / dotCount) * Math.PI * 2;
+          const px = ringCx + Math.cos(angle) * radius;
+          const py = ringCy + Math.sin(angle) * radius;
           pCtx.fillRect(px - dotSize/2, py - dotSize/2, dotSize, dotSize);
+        }
+
+        // ====================================================================
+        // RENDER DE "PABLO MUNEY" EN PROFUNDIDAD INFINITA CON BRILLO NEÓN
+        // ====================================================================
+        if (i % 2 === 0 && currentScale > 0.08) {
+          pCtx.save();
+          const fontSize = Math.max(7, Math.floor(26 * currentScale));
+          pCtx.font = `800 ${fontSize}px 'Syne', sans-serif`;
+          pCtx.textAlign = 'center';
+          pCtx.textBaseline = 'middle';
+          
+          pCtx.fillStyle = i < 4 ? `rgba(254, 250, 228, ${intensity * 0.95})` : `rgba(${r}, ${g}, ${b}, ${intensity * 0.9})`;
+          pCtx.shadowColor = `rgba(${r}, ${g}, ${b}, ${intensity})`;
+          pCtx.shadowBlur = Math.max(3, 14 * currentScale);
+
+          // Proyección del nombre sobre el eje visual
+          pCtx.fillText("PABLO MUNEY", ringCx, ringCy - radius * 0.28);
+          
+          // Isotipo / Identidad en la parte inferior de la capa
+          if (i === 4 || i === 8 || i === 12) {
+            const subSize = Math.max(5, Math.floor(13 * currentScale));
+            pCtx.font = `700 ${subSize}px 'Space Grotesk', monospace`;
+            pCtx.fillStyle = `rgba(0, 240, 255, ${intensity * 0.85})`;
+            pCtx.fillText("EMPANADAZAS", ringCx, ringCy + radius * 0.28);
+          }
+
+          pCtx.restore();
         }
       }
 
       requestAnimationFrame(renderPortalInfinity);
     }
+
     if (pCanvas) {
       renderPortalInfinity();
     }
 
-    // SVG OFICIAL DE EMPANADAZAS CON PROPORCIÓN DE MARCA
+    // SVG OFICIAL DE EMPANADAZAS
     const svgOficialEmpanadazas = `
       <div class="empanadazas-brand-capsule">
         <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 647.17 130.27">
@@ -1763,7 +2119,7 @@
         titulo: "Empanadazas",
         subtitulo: "Cadena de franquicias gastronómicas y creadores de la categoría Miti-Miti",
         categoria: "DESARROLLO COMERCIAL / FRANQUICIAS",
-        usaLogoSvg: true, // Reemplaza el título de texto por el SVG oficial
+        usaLogoSvg: true,
         cuerpo: `
           <p><strong>Empanadazas</strong> es un modelo gastronómico fundado por Pablo Muney junto a profesionales culinarios, creado para innovar en el segmento tradicional de empanadas mediante unidades de tamaño XL y venta por peso.</p>
           <p>La marca introdujo al mercado el concepto registrado <em>«Miti-Miti»</em>: una técnica de manufactura que combina dos rellenos culinarios independientes dentro de una misma pieza, sin mezcla de sabores, identificados visualmente por cubiertas superiores (<em>toppings</em>) a través de un catálogo de más de 50 variedades.</p>
@@ -2032,7 +2388,7 @@
     };
 
     // ==========================================================================
-    // NAVEGACIÓN DIRECTA SIN SALTO AL INICIO NI FLASH EN PORTADA
+    // NAVEGACIÓN Y SMART SCROLL RETURN EXACTO (AL PÍXEL DONDE SE QUEDÓ)
     // ==========================================================================
     function navegarDesdeCualquierLugar(seccionId) {
       const vistaExp = document.getElementById('vista-expediente');
@@ -2043,27 +2399,23 @@
         const target = document.getElementById(seccionId);
         if (!target) return 0;
         
-        // Si el destino es el formulario, scroll al inicio exacto del banner
         if (seccionId === 'sec-contacto') {
           return Math.max(0, target.getBoundingClientRect().top + window.pageYOffset - headerHeight);
         }
 
-        // Para las demás secciones, compensar altura exacta de cabecera
         return Math.max(0, target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 12);
       }
 
-      // Si estamos dentro de un expediente, conmutar y saltar instantáneamente al destino sin parpadeo arriba
       if (vistaExp && vistaExp.style.display === 'block') {
         vistaExp.style.display = 'none';
         vistaPort.style.display = 'block';
         
         const destinoExacto = calcularPosicionDestino();
         window.scrollTo({ top: destinoExacto, behavior: 'instant' });
-        history.pushState("", document.title, window.location.pathname);
+        history.pushState(null, document.title, window.location.pathname);
         return;
       }
 
-      // Si ya estamos en portada, desplazamiento suave elegante
       const destinoExacto = calcularPosicionDestino();
       window.scrollTo({ top: destinoExacto, behavior: 'smooth' });
     }
@@ -2072,9 +2424,9 @@
       const data = baseExpedientes[id];
       if (!data) return;
 
-      posicionPreviaScroll = window.pageYOffset;
+      // Captura milimétrica exacta antes de cambiar de vista
+      posicionPreviaScroll = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
 
-      // Inyección del título: si es Empanadazas, inyecta su SVG oficial en cápsula
       const tituloContainer = document.getElementById('exp-titulo-container');
       if (data.usaLogoSvg) {
         tituloContainer.innerHTML = svgOficialEmpanadazas;
@@ -2107,22 +2459,29 @@
       document.getElementById('vista-expediente').style.display = 'block';
       window.scrollTo(0, 0);
 
-      window.location.hash = 'expediente-' + id;
+      // Usamos pushState con estado preservado sin provocar saltos nativos
+      history.pushState({ expediente: id, scrollSaved: posicionPreviaScroll }, '', '#expediente-' + id);
     }
 
     function cerrarExpedienteYVolver() {
       document.getElementById('vista-expediente').style.display = 'none';
       document.getElementById('vista-portada').style.display = 'block';
 
-      window.scrollTo({
-        top: posicionPreviaScroll,
-        behavior: 'instant'
+      // Restauración en doble paso para garantizar el renderizado del DOM
+      const targetY = posicionPreviaScroll;
+      window.scrollTo({ top: targetY, behavior: 'instant' });
+
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: targetY, behavior: 'instant' });
+        setTimeout(() => {
+          window.scrollTo({ top: targetY, behavior: 'instant' });
+        }, 20);
       });
 
-      history.pushState("", document.title, window.location.pathname + window.location.search);
+      history.pushState(null, document.title, window.location.pathname + window.location.search);
     }
 
-    window.addEventListener('popstate', () => {
+    window.addEventListener('popstate', (e) => {
       const hash = window.location.hash;
       if (hash.startsWith('#expediente-')) {
         const id = hash.replace('#expediente-', '');
