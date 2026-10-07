@@ -77,10 +77,10 @@
   }
   </script>
 
-  <!-- Tipografías: Syne (Art Pop Logo), Fraunces (Editorial Serif) & Inter / Space Grotesk -->
+  <!-- Tipografías: Syne, Fraunces, Inter y Space Grotesk -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,600&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,600&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 
   <style>
     /* ==========================================================================
@@ -132,9 +132,9 @@
 
     html {
       background-color: var(--bg-canvas);
+      scroll-behavior: smooth;
     }
 
-    /* FONDO DISRUPTIVO CON ONDAS PSICODÉLICAS & MOIRÉ VISIBLE */
     body {
       background-color: var(--bg-canvas);
       color: var(--ink-primary);
@@ -144,7 +144,7 @@
       overflow-x: hidden;
       
       background-image: 
-        radial-gradient(rgba(180, 83, 9, 0.06) 1.5px, transparent 1.5px),
+        radial-gradient(rgba(180, 83, 9, 0.05) 1.5px, transparent 1.5px),
         url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 60 C30 30, 30 90, 60 60 C90 30, 90 90, 120 60' stroke='rgba(247,37,133,0.035)' stroke-width='1.5' fill='none'/%3E%3Cpath d='M0 30 C30 0, 30 60, 60 30 C90 0, 90 60, 120 30' stroke='rgba(0,240,255,0.035)' stroke-width='1.5' fill='none'/%3E%3Cpath d='M0 90 C30 60, 30 120, 60 90 C90 60, 90 120, 120 90' stroke='rgba(114,9,183,0.035)' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"),
         url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
       background-size: 24px 24px, 120px 120px, 160px 160px;
@@ -161,7 +161,7 @@
       padding: 0 28px;
     }
 
-    /* TELÓN TEATRAL DE ENTRADA CON APERTURA INMEDIATA */
+    /* TELÓN TEATRAL DE ENTRADA */
     .base-curtain {
       background: #FFFFFF;
       height: 100vh;
@@ -261,9 +261,10 @@
     .header-nav {
       display: flex;
       gap: 6px;
+      align-items: center;
     }
 
-    /* BOTONES GENERALES CON FLUJO CROMÁTICO EN MOVIMIENTO */
+    /* BOTONES GENERALES */
     .button {
       position: relative;
       display: inline-flex;
@@ -280,12 +281,16 @@
       color: var(--ink-primary);
       background: #FFFFFF;
       border: 0.5px solid var(--hairline);
-      border-radius: 3px;
+      border-radius: 4px;
       cursor: pointer;
       overflow: hidden;
       white-space: nowrap;
       z-index: 1;
-      transition: color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      transition: color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
     }
 
     .button::after {
@@ -330,17 +335,18 @@
       background: rgba(18, 22, 31, 0.05);
       color: var(--ink-primary);
       box-shadow: none;
+      transform: none;
     }
 
     .button.ghost:hover::after {
       opacity: 0;
     }
 
-    /* BOTÓN DE CONTACTO ESPECÍFICO: ANIMACIÓN NEUTRA PLATINUM / TITANIUM SHEEN */
     .button.btn-contact-exec {
-      background: var(--ink-primary);
+      background: #0E121B;
       color: #FFFFFF;
-      border-color: var(--ink-primary);
+      border-color: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
     }
 
     .button.btn-contact-exec::after {
@@ -354,13 +360,37 @@
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
     }
 
+    /* BOTÓN TRIGGER DEL MENÚ RESPONSIVE MÓVIL */
+    .mobile-menu-trigger {
+      display: none;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      background: #FFFFFF;
+      border: 1px solid var(--hairline);
+      border-radius: 4px;
+      cursor: pointer;
+      color: var(--ink-primary);
+      transition: all 0.2s ease;
+    }
+
+    .mobile-menu-trigger:hover {
+      border-color: var(--pop-magenta);
+      color: var(--pop-magenta);
+    }
+
     @keyframes chromaticRun {
       0% { background-position: 0% 50%; }
       100% { background-position: 300% 50%; }
     }
 
     /* ==========================================================================
-       HERO SECTION (TÍTULO LIMPIO Y SOBRIO)
+       HERO SECTION
        ========================================================================== */
     .hero-wrap {
       padding: 64px 0 54px;
@@ -442,14 +472,14 @@
       border-color: var(--pop-magenta);
       color: var(--pop-purple);
       box-shadow: 0 4px 12px rgba(247, 37, 133, 0.16);
+      transform: translateY(-1px);
     }
 
-    /* Marco de la Foto Real de Pablo Muney */
     .hero-media-wrapper {
       background: var(--bg-surface);
       border: 0.5px solid var(--hairline);
       padding: 8px;
-      border-radius: 3px;
+      border-radius: 4px;
       box-shadow: 0 16px 36px -12px rgba(17, 21, 31, 0.08);
       max-width: 330px;
       margin: 0 auto;
@@ -471,7 +501,7 @@
       display: block;
     }
 
-    /* BARRA INSTITUCIONAL INTEGRADA */
+    /* BARRA INSTITUCIONAL */
     .trust-ribbon {
       background: var(--bg-surface);
       border-bottom: 0.5px solid var(--hairline);
@@ -514,7 +544,7 @@
     }
 
     /* ==========================================================================
-       RECUADROS CON TÍTULOS LIMPIOS Y COLORES VISIBLES EN REPOSO
+       SECCIONES DE TARJETAS (SISTEMA DE GRID DE 3 Y 2 COLUMNAS)
        ========================================================================== */
     .section-wrap {
       padding: 72px 0;
@@ -541,7 +571,7 @@
 
     .section-h2 {
       font-family: var(--font-display);
-      font-size: 29px;
+      font-size: clamp(24px, 3vw, 32px);
       font-weight: 600;
       letter-spacing: -0.02em;
     }
@@ -553,11 +583,12 @@
     }
 
     .card-tile {
-      border-radius: 4px;
+      border-radius: 6px;
       padding: 24px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      min-height: 220px;
       cursor: pointer;
       position: relative;
       overflow: hidden;
@@ -582,10 +613,10 @@
       opacity: 1;
     }
 
-    /* 1. EMPRESAS (ÁMBAR CÁLIDO / EDITORIAL TERRACOTA) */
+    /* 1. EMPRESAS */
     .card-tile.type-empresa {
       background: linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 65%, var(--empresa-bg) 100%);
-      border: 1px solid rgba(180, 83, 9, 0.3);
+      border: 1px solid rgba(180, 83, 9, 0.25);
     }
     .card-tile.type-empresa::before {
       content: "";
@@ -609,10 +640,10 @@
     }
     .card-tile.type-empresa .card-link-action { color: #B45309; }
 
-    /* 2. TELEVISIÓN (CIAN NEÓN / MAGENTA BROADCAST) */
+    /* 2. TELEVISIÓN */
     .card-tile.type-tv {
       background: linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 65%, var(--tv-bg) 100%);
-      border: 1px solid rgba(0, 20, 137, 0.25);
+      border: 1px solid rgba(0, 20, 137, 0.22);
     }
     .card-tile.type-tv::before {
       content: "";
@@ -636,10 +667,10 @@
     }
     .card-tile.type-tv .card-link-action { color: #001489; }
 
-    /* 3. RADIO (ULTRAVIOLETA BROADCAST / GROTESK) */
+    /* 3. RADIO */
     .card-tile.type-radio {
       background: linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 65%, var(--radio-bg) 100%);
-      border: 1px solid rgba(114, 9, 183, 0.28);
+      border: 1px solid rgba(114, 9, 183, 0.25);
     }
     .card-tile.type-radio::before {
       content: "";
@@ -679,7 +710,7 @@
       text-transform: uppercase;
       letter-spacing: 0.06em;
       padding: 3px 8px;
-      border-radius: 2px;
+      border-radius: 3px;
     }
 
     .badge-gastronomia { background: rgba(255, 158, 0, 0.14); color: #B45309; border: 0.5px solid rgba(255, 158, 0, 0.45); }
@@ -730,11 +761,11 @@
     }
 
     /* ==========================================================================
-       SECCIÓN: EL GRAN PORTAL INFINITY MIRROR ENSAMBLADO CON EL FORMULARIO
+       SECCIÓN 4: EL GRAN PORTAL INFINITY MIRROR
        ========================================================================== */
     .infinity-portal-section {
-      padding: 96px 0;
-      background: #04060A;
+      padding: 96px 0 110px;
+      background: radial-gradient(circle at 50% 20%, #0d111a 0%, #04060A 80%);
       color: #FFFFFF;
       position: relative;
       overflow: hidden;
@@ -742,63 +773,138 @@
       scroll-margin-top: var(--header-h);
     }
 
-    .portal-container {
+    .infinity-portal-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+    }
+
+    .portal-header {
+      text-align: center;
+      margin-bottom: 48px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .portal-h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.8vw, 3rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+
+    .portal-dual-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      position: relative;
+      z-index: 10;
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    .portal-mirror-monolith {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       position: relative;
-      text-align: center;
     }
 
-    .portal-stage {
+    .mirror-bezel-frame {
       position: relative;
       width: 100%;
-      max-width: 720px;
+      max-width: 480px;
       aspect-ratio: 1 / 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 24px;
+      border-radius: 50%;
+      background: #000000;
+      padding: 8px;
+      box-shadow: 
+        0 30px 80px rgba(0, 0, 0, 0.9),
+        0 0 50px rgba(0, 240, 255, 0.25),
+        0 0 80px rgba(247, 37, 133, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      transform-style: preserve-3d;
+      perspective: 1000px;
+      transition: transform 0.1s ease-out;
+    }
+
+    .mirror-bezel-frame::before {
+      content: "";
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      background: conic-gradient(from 180deg at 50% 50%, rgba(0,240,255,0.7) 0deg, rgba(247,37,133,0.3) 120deg, rgba(236,162,68,0.6) 240deg, rgba(0,240,255,0.7) 360deg);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      padding: 2.5px;
+      pointer-events: none;
     }
 
     #portal-infinity-canvas {
-      position: absolute;
-      inset: 0;
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      box-shadow: 
-        0 0 90px rgba(0, 240, 255, 0.5),
-        inset 0 0 70px rgba(247, 37, 133, 0.4);
+      display: block;
+      background: #020306;
     }
 
-    .portal-optical-bezel {
+    .mirror-specular-glass {
       position: absolute;
-      inset: -4px;
+      inset: 8px;
       border-radius: 50%;
-      border: 2px solid rgba(0, 240, 255, 0.65);
-      box-shadow: 0 0 35px rgba(0, 240, 255, 0.4), inset 0 0 35px rgba(0, 0, 0, 0.95);
+      background: linear-gradient(135deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.02) 40%, rgba(0,0,0,0.5) 100%);
       pointer-events: none;
       z-index: 5;
     }
 
-    /* FORMULARIO CRISTALINO HIPER-TRANSLÚCIDO (DEJA VER EL VÓRTICE CORRER POR DETRÁS) */
+    .mirror-branding-overlay {
+      position: absolute;
+      bottom: 24px;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.65);
+      background: rgba(10, 14, 22, 0.6);
+      padding: 4px 14px;
+      border-radius: 20px;
+      border: 0.5px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      z-index: 6;
+    }
+
+    /* CONSOLA DE CONTACTO EJECUTIVO */
     .portal-form-card {
       position: relative;
-      z-index: 10;
-      width: 82%;
-      max-width: 440px;
-      background: rgba(4, 6, 12, 0.42); /* Translúcido para revelar el espejo detrás */
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(0, 240, 255, 0.35);
-      border-radius: 8px;
-      padding: 34px 30px;
+      background: rgba(12, 16, 26, 0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 12px;
+      padding: 38px 36px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
       box-shadow: 
-        0 24px 60px rgba(0, 0, 0, 0.75),
-        inset 0 0 25px rgba(247, 37, 133, 0.15);
+        0 24px 60px rgba(0, 0, 0, 0.7),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
       text-align: left;
+    }
+
+    .portal-form-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(circle at top left, rgba(0, 240, 255, 0.08), transparent 60%);
+      pointer-events: none;
     }
 
     .portal-form-title {
@@ -808,65 +914,93 @@
       letter-spacing: -0.02em;
       color: #FFFFFF;
       margin-bottom: 6px;
-      text-align: center;
     }
 
     .portal-form-subtitle {
       font-family: var(--font-mono);
       font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       color: var(--pop-cyan);
-      text-align: center;
-      margin-bottom: 24px;
+      margin-bottom: 26px;
     }
 
     .form-group {
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
 
     .form-label {
       font-family: var(--font-mono);
       font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: #CBD5E1;
+      letter-spacing: 0.06em;
+      color: #94A3B8;
       display: block;
-      margin-bottom: 5px;
+      margin-bottom: 6px;
     }
 
     .form-input, .form-textarea {
       width: 100%;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      border-radius: 3px;
-      padding: 10px 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 5px;
+      padding: 12px 14px;
       color: #FFFFFF;
       font-family: var(--font-body);
-      font-size: 14px;
-      transition: border-color 0.2s, background 0.2s;
+      font-size: 14.5px;
+      transition: all 0.25s ease;
     }
 
     .form-input:focus, .form-textarea:focus {
       outline: none;
       border-color: var(--pop-cyan);
-      background: rgba(255, 255, 255, 0.12);
-      box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 0 16px rgba(0, 240, 255, 0.25);
     }
 
     .form-textarea {
       resize: vertical;
-      min-height: 80px;
+      min-height: 90px;
+    }
+
+    .btn-submit-master {
+      width: 100%;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 24px;
+      border-radius: 50px;
+      background: #FFFFFF;
+      color: #0E121B;
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      overflow: hidden;
+      margin-top: 10px;
+      transition: all 0.3s var(--ease-smooth);
+      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-submit-master:hover {
+      background: var(--pop-cyan);
+      color: #000;
+      box-shadow: 0 6px 30px rgba(0, 240, 255, 0.5);
+      transform: translateY(-2px);
     }
 
     /* ==========================================================================
-       VISTA 2: EXPEDIENTE TÉCNICO INTERNO (TÍTULO CON EXTRUSIÓN 3D FACETADA SÓLIDA)
+       VISTA 2: EXPEDIENTE TÉCNICO INTERNO
        ========================================================================== */
     #vista-expediente {
       display: none;
       padding: 40px 0 96px;
       background: #FFFFFF;
-      min-height: calc(100vh - var(--header-height));
+      min-height: calc(100vh - var(--header-h));
     }
 
     .exp-bar {
@@ -884,7 +1018,6 @@
       gap: 56px;
     }
 
-    /* EXTRUSIÓN ISOMÉTRICA SÓLIDA FACETADA (IDÉNTICA A LA MUESTRA) */
     .exp-title-h1 {
       font-family: var(--font-display);
       font-size: clamp(2.4rem, 4vw, 3.6rem);
@@ -892,17 +1025,16 @@
       letter-spacing: -0.02em;
       line-height: 1.1;
       margin-bottom: 14px;
-      color: #0E121B; /* Letra enteramente negra */
+      color: #0E121B;
       text-shadow: 
         1px 1px 0px #E5E7EB,
         2px 2px 0px #D1D5DB,
         3px 3px 0px #9CA3AF,
         4px 4px 0px #6B7280,
         5px 5px 0px #4B5563,
-        6px 6px 0px #374151; /* Proyección física facetada continua */
+        6px 6px 0px #374151;
     }
 
-    /* CÁPSULA OBSIDIANA PARA EL LOGO SVG DE EMPANADAZAS */
     .empanadazas-brand-capsule {
       background: #10141D;
       padding: 22px 32px;
@@ -946,7 +1078,7 @@
     }
 
     .exp-body-text a {
-      color: var(--accent-blue);
+      color: var(--tv-accent);
       text-decoration: underline;
       font-weight: 600;
     }
@@ -954,7 +1086,7 @@
     .specs-panel {
       border: 0.5px solid var(--hairline);
       background: var(--bg-canvas);
-      border-radius: 3px;
+      border-radius: 4px;
       padding: 22px;
       position: sticky;
       top: calc(var(--header-h) + 20px);
@@ -1019,41 +1151,44 @@
     }
 
     .bib-ol a {
-      color: var(--accent-blue);
+      color: var(--tv-accent);
       text-decoration: underline;
     }
 
     /* ==========================================================================
-       ATAJOS RÁPIDOS FLOTANTES SINCRONIZADOS (APARECEN JUNTOS Y RÁPIDO)
+       DOCK FLOTANTE CON SAFE-MARGIN
        ========================================================================== */
     .quick-actions-dock {
       position: fixed;
-      bottom: 24px;
-      right: 24px;
+      bottom: calc(20px + env(safe-area-inset-bottom));
+      right: calc(20px + env(safe-area-inset-right));
       z-index: 950;
       display: flex;
       flex-direction: column;
       gap: 10px;
       opacity: 0;
       visibility: hidden;
-      transition: opacity 0.16s ease, visibility 0.16s ease;
+      transform: translateY(12px);
+      transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
       pointer-events: none;
     }
 
     .quick-actions-dock.active {
       opacity: 1;
       visibility: visible;
+      transform: translateY(0);
       pointer-events: auto;
     }
 
     .quick-btn {
       width: 44px;
       height: 44px;
-      border-radius: 4px;
-      background: #10141D;
+      border-radius: 50%;
+      background: rgba(16, 20, 29, 0.92);
+      backdrop-filter: blur(12px);
       color: #FFFFFF;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.28);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1061,19 +1196,136 @@
       font-family: var(--font-mono);
       font-size: 15px;
       font-weight: 700;
-      transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+      transition: all 0.2s ease;
     }
 
     .quick-btn:hover {
       background: #FFFFFF;
-      color: #001489;
-      border-color: #001489;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 22px rgba(0, 20, 137, 0.25);
+      color: #0E121B;
+      border-color: #FFFFFF;
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
     }
 
     .quick-btn:active {
       transform: scale(0.95);
+    }
+
+    /* ==========================================================================
+       POPUP MODAL RESPONSIVE MÓVIL
+       ========================================================================== */
+    .mobile-popup-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 6, 12, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      z-index: 10000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .mobile-popup-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-popup-dialog {
+      background: #0E121B;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(0, 240, 255, 0.1);
+      border-radius: 12px;
+      width: 100%;
+      max-width: 380px;
+      padding: 32px 24px 28px;
+      position: relative;
+      text-align: center;
+      transform: translateY(20px) scale(0.96);
+      transition: transform 0.3s var(--ease-smooth);
+    }
+
+    .mobile-popup-overlay.open .mobile-popup-dialog {
+      transform: translateY(0) scale(1);
+    }
+
+    .mobile-popup-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #FFFFFF;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .mobile-popup-close:hover {
+      background: var(--pop-magenta);
+      border-color: var(--pop-magenta);
+    }
+
+    .mobile-popup-brand {
+      font-family: var(--font-logo);
+      font-size: 19px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      margin-bottom: 22px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-popup-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .mobile-popup-nav button {
+      width: 100%;
+      padding: 13px 18px;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #FFFFFF;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .mobile-popup-nav button:hover, .mobile-popup-nav button:active {
+      background: var(--pop-cyan);
+      border-color: var(--pop-cyan);
+      color: #000000;
+      box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+    }
+
+    .mobile-popup-nav button.btn-destacado {
+      background: linear-gradient(90deg, #F72585, #7209B7);
+      border-color: transparent;
+      color: #FFFFFF;
+      margin-top: 6px;
     }
 
     /* FOOTER */
@@ -1083,6 +1335,8 @@
       padding: 48px 0;
       font-size: 13px;
       color: var(--ink-muted);
+      position: relative;
+      z-index: 20;
     }
 
     .footer-content {
@@ -1112,15 +1366,15 @@
     }
 
     /* ==========================================================================
-       RESPONSIVE MÓVIL EXACTO (2 COLUMNAS PARALELAS)
+       RESPONSIVE MASTER (SIEMPRE 2 COLUMNAS EN MÓVIL Y TABLET)
        ========================================================================== */
-    @media (max-width: 900px) {
+    @media (max-width: 980px) {
       .hero-cols {
         grid-template-columns: 1fr;
         gap: 36px;
       }
       .hero-media-wrapper {
-        max-width: 270px;
+        max-width: 280px;
         margin: 0;
       }
       .trust-grid {
@@ -1130,6 +1384,13 @@
       .trust-item:nth-child(2) {
         border-right: none;
       }
+      .portal-dual-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .mirror-bezel-frame {
+        max-width: 380px;
+      }
       .exp-columns {
         grid-template-columns: 1fr;
         gap: 36px;
@@ -1137,53 +1398,89 @@
       .specs-panel {
         position: static;
       }
+      .two-col-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 16px;
+      }
     }
 
+    /* MEJORA 2: 2 RECUADROS POR FILA EN TODAS LAS PANTALLAS MÓVILES (COMPACTO) */
     @media (max-width: 768px) {
+      .header-nav .button.ghost {
+        display: none;
+      }
+      .mobile-menu-trigger {
+        display: inline-flex;
+      }
       .container {
         padding: 0 16px;
       }
       .two-col-grid {
         grid-template-columns: repeat(2, 1fr) !important;
-        gap: 12px;
+        gap: 12px !important;
       }
       .card-tile {
-        padding: 14px;
+        padding: 14px 12px;
+        min-height: auto;
+      }
+      .card-meta-top {
+        margin-bottom: 8px;
+      }
+      .card-badge {
+        font-size: 9px;
+        padding: 2px 6px;
+      }
+      .card-year-label {
+        font-size: 9.5px;
       }
       .card-h3 {
-        font-size: 15px;
+        font-size: 14.5px;
+        margin-bottom: 6px;
       }
       .card-brief {
-        font-size: 12px;
-        -webkit-line-clamp: 2;
+        font-size: 11px;
+        line-height: 1.4;
         margin-bottom: 12px;
+        -webkit-line-clamp: 2;
       }
       .card-link-action {
-        font-size: 10px;
-      }
-      .header-nav {
-        gap: 4px;
-      }
-      .header-nav .button {
-        padding: 7px 11px;
-        font-size: 10.5px;
-      }
-      .brand-text {
-        font-size: 16px;
-      }
-      .portal-stage {
-        max-width: 100%;
+        font-size: 9.5px;
       }
       .portal-form-card {
-        padding: 24px 18px;
-        width: 92%;
+        padding: 26px 20px;
+      }
+      .mirror-bezel-frame {
+        max-width: 320px;
+      }
+      .quick-actions-dock {
+        bottom: 16px;
+        right: 16px;
+      }
+    }
+
+    @media (max-width: 440px) {
+      .container {
+        padding: 0 12px;
+      }
+      .two-col-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px !important;
+      }
+      .card-tile {
+        padding: 12px 10px;
+      }
+      .card-h3 {
+        font-size: 13.5px;
+      }
+      .card-brief {
+        font-size: 10.5px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- 1. TELÓN TEATRAL DE ENTRADA CON APERTURA FORZOSA INMEDIATA -->
+  <!-- 1. TELÓN TEATRAL DE ENTRADA -->
   <div id="base-curtain" class="base-curtain">
     <div class="curtain-title">Pablo Muney</div>
     <div class="curtain-line"></div>
@@ -1202,10 +1499,40 @@
           <button class="button ghost" onclick="navegarDesdeCualquierLugar('sec-television')">Televisión</button>
           <button class="button ghost" onclick="navegarDesdeCualquierLugar('sec-radio')">Radio</button>
           <button class="button solid btn-contact-exec" onclick="navegarDesdeCualquierLugar('sec-contacto')">Contacto</button>
+          
+          <!-- Botón de apertura del Menú Popup Móvil -->
+          <button class="mobile-menu-trigger" onclick="abrirMenuMobile()" aria-label="Abrir menú de navegación">
+            <span>☰</span> Menú
+          </button>
         </nav>
       </div>
     </div>
   </header>
+
+  <!-- ==========================================================================
+       POPUP MODAL RESPONSIVE MÓVIL
+       ========================================================================== -->
+  <div class="mobile-popup-overlay" id="mobileMenuPopup" onclick="cerrarMenuMobileOutside(event)">
+    <div class="mobile-popup-dialog">
+      <button class="mobile-popup-close" onclick="cerrarMenuMobile()" aria-label="Cerrar menú">✕</button>
+      <div class="mobile-popup-brand">PABLO MUNEY</div>
+      
+      <div class="mobile-popup-nav">
+        <button onclick="navegarYModal('sec-empresas')">
+          <span>Empresas & Franquicias</span> <span>→</span>
+        </button>
+        <button onclick="navegarYModal('sec-television')">
+          <span>Televisión (+25 Años)</span> <span>→</span>
+        </button>
+        <button onclick="navegarYModal('sec-radio')">
+          <span>Radiofonía</span> <span>→</span>
+        </button>
+        <button class="btn-destacado" onclick="navegarYModal('sec-contacto')">
+          <span>✉ Contacto Directo</span> <span>→</span>
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- ==========================================================================
        VISTA 1: PORTADA PRINCIPAL
@@ -1251,7 +1578,7 @@
             </div>
           </div>
 
-          <!-- FOTOGRAFÍA OFICIAL REAL DESDE GITHUB (ENLACE RELATIVO + RAW GITHUB FALLBACK) -->
+          <!-- FOTOGRAFÍA OFICIAL REAL -->
           <div>
             <div class="hero-media-wrapper">
               <div class="hero-media-inner">
@@ -1291,7 +1618,7 @@
       </div>
     </div>
 
-    <!-- SECCIÓN 1: EMPRESAS & PATENTES (FONDO ÁMBAR/TERRACOTA) -->
+    <!-- SECCIÓN 1: EMPRESAS & PATENTES (2 RECUADROS POR FILA EN MÓVIL) -->
     <section class="section-wrap" id="sec-empresas" style="background: #FFFFFF;">
       <div class="container">
         <div class="section-header">
@@ -1345,7 +1672,7 @@
       </div>
     </section>
 
-    <!-- SECCIÓN 2: TELEVISIÓN (FONDO BROADCAST CIAN/AZUL) -->
+    <!-- SECCIÓN 2: TELEVISIÓN (2 RECUADROS POR FILA EN MÓVIL) -->
     <section class="section-wrap" id="sec-television">
       <div class="container">
         <div class="section-header">
@@ -1450,7 +1777,7 @@
       </div>
     </section>
 
-    <!-- SECCIÓN 3: RADIO (FONDO ACÚSTICO ULTRAVIOLETA) -->
+    <!-- SECCIÓN 3: RADIO (2 RECUADROS POR FILA EN MÓVIL) -->
     <section class="section-wrap" id="sec-radio" style="background:#FFFFFF;">
       <div class="container">
         <div class="section-header">
@@ -1486,67 +1813,75 @@
     </section>
 
     <!-- ==========================================================================
-         SECCIÓN 4: EL GRAN PORTAL INFINITY MIRROR (FORMULARIO EMPRESARIAL)
+         SECCIÓN 4: EL GRAN PORTAL INFINITY MIRROR
          ========================================================================== -->
     <section class="infinity-portal-section" id="sec-contacto">
       <div class="container">
-        <div class="portal-container">
+        
+        <div class="portal-header">
+          <span class="kicker" style="justify-content:center; color:var(--pop-cyan);">
+            <span class="kicker-bar" style="background:var(--pop-cyan);"></span>
+            Canal de Comunicación Directo
+            <span class="kicker-bar" style="background:var(--pop-cyan);"></span>
+          </span>
+          <h2 class="portal-h2">
+            Alianzas, Conducción & Negocios
+          </h2>
+        </div>
+
+        <div class="portal-dual-layout">
           
-          <div style="margin-bottom: 24px;">
-            <span class="kicker" style="justify-content:center; color:var(--pop-cyan);">
-              <span class="kicker-bar" style="background:var(--pop-cyan);"></span>
-              Canal de Comunicación Directo
-              <span class="kicker-bar" style="background:var(--pop-cyan);"></span>
-            </span>
-            <h2 style="font-family:var(--font-display); font-size:clamp(2rem, 3.5vw, 2.8rem); font-weight:600; letter-spacing:-0.02em;">
-              Alianzas, Conducción & Negocios
-            </h2>
+          <!-- LADO A: TÓTEM DEL ESPEJO INFINITO FÍSICO INTERACTIVO -->
+          <div class="portal-mirror-monolith">
+            <div class="mirror-bezel-frame" id="portalMirrorBezel">
+              <!-- Cristal Espía Semitransparente -->
+              <div class="mirror-specular-glass"></div>
+              
+              <!-- Canvas de Física Lumínica Infinita con PABLO MUNEY -->
+              <canvas id="portal-infinity-canvas" width="760" height="760"></canvas>
+            </div>
+            <div class="mirror-branding-overlay">Optical Core • Pablo Muney Engine</div>
           </div>
 
-          <div class="portal-stage">
-            <!-- CANVAS CON ONDA CONTINUA Y DESVANECIMIENTO PERIMETRAL -->
-            <canvas id="portal-infinity-canvas" width="720" height="720"></canvas>
-            <div class="portal-optical-bezel"></div>
+          <!-- LADO B: CONSOLA DE CONTACTO EJECUTIVO DE CRISTAL SATINADO -->
+          <div class="portal-form-card">
+            <h3 class="portal-form-title">Contacto Ejecutivo</h3>
+            <p class="portal-form-subtitle">Enlace Directo con Pablo Muney</p>
 
-            <!-- FORMULARIO DE CRISTAL TRASLÚCIDO ENSAMBLADO EN EL CENTRO -->
-            <div class="portal-form-card">
-              <h3 class="portal-form-title">Contacto Ejecutivo</h3>
-              <p class="portal-form-subtitle">Enlace Directo con Pablo Muney</p>
+            <form action="https://formsubmit.co/diseno.graficoindustrial@gmail.com" method="POST">
+              <input type="hidden" name="_subject" value="Nuevo Mensaje Corporativo desde PabloMuney.com">
+              <input type="hidden" name="_captcha" value="false">
 
-              <form action="https://formsubmit.co/diseno.graficoindustrial@gmail.com" method="POST">
-                <input type="hidden" name="_subject" value="Nuevo Mensaje Corporativo desde PabloMuney.com">
-                <input type="hidden" name="_captcha" value="false">
+              <div class="form-group">
+                <label class="form-label">Nombre y Apellido</label>
+                <input type="text" name="nombre" class="form-input" placeholder="Tu nombre o empresa" required>
+              </div>
 
-                <div class="form-group">
-                  <label class="form-label">Nombre y Apellido</label>
-                  <input type="text" name="nombre" class="form-input" placeholder="Tu nombre o empresa" required>
-                </div>
+              <div class="form-group">
+                <label class="form-label">Teléfono / WhatsApp</label>
+                <input type="tel" name="telefono" class="form-input" placeholder="+54 9 11 ..." required>
+              </div>
 
-                <div class="form-group">
-                  <label class="form-label">Teléfono / WhatsApp</label>
-                  <input type="tel" name="telefono" class="form-input" placeholder="+54 9 11 ..." required>
-                </div>
+              <div class="form-group">
+                <label class="form-label">Propuesta o Consulta</label>
+                <textarea name="mensaje" class="form-textarea" placeholder="Detalle de la propuesta comercial, franquicias o conducción..." required></textarea>
+              </div>
 
-                <div class="form-group">
-                  <label class="form-label">Propuesta o Consulta</label>
-                  <textarea name="mensaje" class="form-textarea" placeholder="Detalle de la propuesta comercial, franquicias o conducción..." required></textarea>
-                </div>
-
-                <button type="submit" class="button solid btn-contact-exec" style="width:100%; justify-content:center; padding:12px; margin-top:6px;">
-                  Enviar Propuesta Directa →
-                </button>
-              </form>
-            </div>
+              <button type="submit" class="btn-submit-master">
+                Enviar Propuesta Directa →
+              </button>
+            </form>
           </div>
 
         </div>
+
       </div>
     </section>
 
   </div>
 
   <!-- ==========================================================================
-       VISTA 2: EXPEDIENTE / SUBPÁGINA DETALLADA (SMART RETURN)
+       VISTA 2: EXPEDIENTE / SUBPÁGINA DETALLADA
        ========================================================================== -->
   <div id="vista-expediente">
     <div class="container">
@@ -1560,7 +1895,7 @@
 
       <div class="exp-columns">
         <div>
-          <!-- CONTENEDOR DINÁMICO DE TÍTULO O LOGO SVG OFICIAL -->
+          <!-- Contenedor dinámico de título o logo SVG -->
           <div id="exp-titulo-container">
             <h1 id="exp-titulo" class="exp-title-h1">Título del Expediente</h1>
           </div>
@@ -1616,6 +1951,10 @@
        MOTORES JS: FÍSICA CINEMÁTICA Y NAVEGACIÓN PRECISA
        ========================================================================== -->
   <script>
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+
     let posicionPreviaScroll = 0;
 
     function levantarTelonSeguro() {
@@ -1649,18 +1988,60 @@
     }
 
     // ==========================================================================
-    // SIMULADOR ÓPTICO REAL DE ESPEJO INFINITO: CINEMÁTICO PARAMOUNT
+    // POPUP MODAL MÓVIL
+    // ==========================================================================
+    function abrirMenuMobile() {
+      const popup = document.getElementById('mobileMenuPopup');
+      if (popup) popup.classList.add('open');
+    }
+
+    function cerrarMenuMobile() {
+      const popup = document.getElementById('mobileMenuPopup');
+      if (popup) popup.classList.remove('open');
+    }
+
+    function cerrarMenuMobileOutside(e) {
+      if (e.target.id === 'mobileMenuPopup') {
+        cerrarMenuMobile();
+      }
+    }
+
+    function navegarYModal(seccionId) {
+      cerrarMenuMobile();
+      setTimeout(() => {
+        navegarDesdeCualquierLugar(seccionId);
+      }, 100);
+    }
+
+    // ==========================================================================
+    // MOTOR ÓPTICO DEL ESPEJO INFINITO (PABLO MUNEY AGRANDADO AL TAMAÑO PERFECTO)
     // ==========================================================================
     const pCanvas = document.getElementById('portal-infinity-canvas');
-    let pCtx = null;
-    if (pCanvas) {
-      pCtx = pCanvas.getContext('2d');
-    }
+    const pBezel = document.getElementById('portalMirrorBezel');
+    let pCtx = pCanvas ? pCanvas.getContext('2d') : null;
     let waveTime = 0;
+    let targetTiltX = 0, targetTiltY = 0;
+    let currentTiltX = 0, currentTiltY = 0;
+
+    window.addEventListener('mousemove', (e) => {
+      if (!pBezel) return;
+      const rect = pBezel.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      targetTiltX = (e.clientX - cx) / window.innerWidth;
+      targetTiltY = (e.clientY - cy) / window.innerHeight;
+    });
 
     function renderPortalInfinity() {
       if (!pCtx) return;
-      waveTime += 0.007; // Frecuencia cinemática lenta, noble y suave
+      waveTime += 0.012;
+
+      currentTiltX += (targetTiltX - currentTiltX) * 0.08;
+      currentTiltY += (targetTiltY - currentTiltY) * 0.08;
+
+      if (pBezel) {
+        pBezel.style.transform = `rotateY(${currentTiltX * 18}deg) rotateX(${-currentTiltY * 18}deg)`;
+      }
 
       const W = pCanvas.width;
       const H = pCanvas.height;
@@ -1670,67 +2051,85 @@
       pCtx.fillStyle = '#020306';
       pCtx.fillRect(0, 0, W, H);
 
-      const totalRings = 24;
-      const maxRadius = W / 2 - 24;
+      const totalRings = 28;
+      const maxRadius = W / 2 - 28;
 
       for (let i = 0; i < totalRings; i++) {
-        const baseScale = 1 / (1 + i * 0.12);
+        const baseScale = Math.pow(0.89, i);
+        if (baseScale < 0.01) break;
 
-        // Ecuación de onda óptica doble suave sin tirones
-        const wave = Math.sin(waveTime * 0.9 - i * 0.18) * 0.045;
+        const wave = Math.sin(waveTime - i * 0.22) * 0.035;
         const currentScale = baseScale * (1 + wave);
         const radius = maxRadius * currentScale;
 
-        // Decaimiento exponencial fotónico
-        const baseIntensity = Math.pow(0.85, i);
-        if (baseIntensity < 0.01) break;
+        const parallaxOffsetDistance = i * 8.5;
+        const ringCx = cx + currentTiltX * parallaxOffsetDistance;
+        const ringCy = cy + currentTiltY * parallaxOffsetDistance;
 
-        const pulse = 1 + 0.18 * Math.sin(waveTime * 0.9 - i * 0.18);
-        
-        // Desvanecimiento suave en el borde exterior
-        const distRatio = radius / maxRadius;
-        const edgeFade = distRatio > 0.8 ? Math.max(0, 1 - (distRatio - 0.8) / 0.2) : 1;
-        const intensity = Math.min(1, baseIntensity * pulse * edgeFade);
+        const decay = Math.pow(0.86, i);
+        const pulse = 1 + 0.15 * Math.sin(waveTime * 1.2 - i * 0.2);
+        const intensity = Math.min(1, decay * pulse);
 
-        // FÍSICA REAL: CUANTO MÁS LEJOS, MÁS PEQUEÑOS Y FINOS SON LOS LEDS (DE 4.2px A 0.8px)
-        const dotSize = Math.max(0.8, 4.2 * Math.pow(currentScale, 1.4));
-        const dotCount = Math.max(12, Math.floor(56 * currentScale));
+        const dotSize = Math.max(1, 4.6 * Math.pow(currentScale, 1.2));
+        const dotCount = Math.max(14, Math.floor(64 * currentScale));
 
-        // Gradiente cinemático de luz
         let r, g, b;
         if (i < 4) {
-          r = Math.floor(210);
-          g = 255;
-          b = 255;
-        } else if (i < 11) {
-          r = 0;
-          g = Math.floor(240 - (i - 4) * 20);
-          b = 255;
+          r = 0; g = 240; b = 255;
+        } else if (i < 12) {
+          r = 247; g = 37; b = 133;
         } else {
-          r = Math.floor(120 + (i - 11) * 8);
-          g = Math.floor(10);
-          b = Math.floor(210 - (i - 11) * 7);
+          r = 236; g = 162; b = 68; // Dorado Empanadazas
         }
 
-        pCtx.fillStyle = `rgba(${r}, ${g}, ${b}, ${intensity * 0.98})`;
-        pCtx.shadowColor = `rgba(${r}, ${g}, ${b}, ${intensity * 0.9})`;
-        pCtx.shadowBlur = Math.max(1.5, 9 * currentScale);
+        pCtx.fillStyle = `rgba(${r}, ${g}, ${b}, ${intensity * 0.95})`;
+        pCtx.shadowColor = `rgba(${r}, ${g}, ${b}, ${intensity * 0.85})`;
+        pCtx.shadowBlur = Math.max(2, 10 * currentScale);
 
+        // Anillo de LEDs concéntrico
         for (let d = 0; d < dotCount; d++) {
-          const a = (d / dotCount) * Math.PI * 2;
-          const px = cx + Math.cos(a) * radius;
-          const py = cy + Math.sin(a) * radius;
+          const angle = (d / dotCount) * Math.PI * 2;
+          const px = ringCx + Math.cos(angle) * radius;
+          const py = ringCy + Math.sin(angle) * radius;
           pCtx.fillRect(px - dotSize/2, py - dotSize/2, dotSize, dotSize);
+        }
+
+        // ====================================================================
+        // MEJORA 1: PABLO MUNEY AGRANDADO CON MÁXIMO IMPACTO NEÓN
+        // ====================================================================
+        if (i % 2 === 0 && currentScale > 0.08) {
+          pCtx.save();
+          // Escala optimizada: de 26 a 34px (con mínimo de 9px)
+          const fontSize = Math.max(9, Math.floor(34 * currentScale));
+          pCtx.font = `800 ${fontSize}px 'Syne', sans-serif`;
+          pCtx.textAlign = 'center';
+          pCtx.textBaseline = 'middle';
+          
+          pCtx.fillStyle = i < 4 ? `rgba(254, 250, 228, ${intensity * 0.98})` : `rgba(${r}, ${g}, ${b}, ${intensity * 0.92})`;
+          pCtx.shadowColor = `rgba(${r}, ${g}, ${b}, ${intensity})`;
+          pCtx.shadowBlur = Math.max(4, 16 * currentScale);
+
+          pCtx.fillText("PABLO MUNEY", ringCx, ringCy - radius * 0.28);
+          
+          if (i === 4 || i === 8 || i === 12) {
+            const subSize = Math.max(6, Math.floor(15 * currentScale));
+            pCtx.font = `700 ${subSize}px 'Space Grotesk', monospace`;
+            pCtx.fillStyle = `rgba(0, 240, 255, ${intensity * 0.88})`;
+            pCtx.fillText("EMPANADAZAS", ringCx, ringCy + radius * 0.28);
+          }
+
+          pCtx.restore();
         }
       }
 
       requestAnimationFrame(renderPortalInfinity);
     }
+
     if (pCanvas) {
       renderPortalInfinity();
     }
 
-    // SVG OFICIAL DE EMPANADAZAS CON PROPORCIÓN DE MARCA
+    // SVG OFICIAL DE EMPANADAZAS
     const svgOficialEmpanadazas = `
       <div class="empanadazas-brand-capsule">
         <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 647.17 130.27">
@@ -1742,17 +2141,17 @@
           </defs>
           <path class="cls-1" d="M65.14,130.27c26.76,0,50.77-16.43,60.55-41.15.42-1.06-.37-2.21-1.51-2.21h-17.64c-.59,0-1.12.32-1.41.83-8.16,14.43-23.39,23.34-39.99,23.34s-31.83-8.92-39.99-23.34c-.29-.51-.82-.83-1.41-.83H6.09c-1.14,0-1.93,1.15-1.51,2.21,9.79,24.72,33.79,41.15,60.55,41.15"/>
           <path class="cls-2" d="M129.85,64.27s0-.01,0-.02l-.03-.09c-.03-.11-.06-.19-.09-.27-.35-.95-.85-1.82-1.48-2.58-.79-.95-1.46-2.01-2-3.14-.05-.12-.1-.23-.15-.34l-.08-.19c-.04-.09-.09-.21-.13-.32-.03-.08-.06-.17-.1-.26l-.07-.19c-.05-.12-.1-.26-.14-.4-.97-2.98-.99-6.13-.05-9.11,0,0,0,0,0-.01h0s0-.02,0-.04c.02-.08.04-.16.06-.24l.03-.12c.04-.14.08-.26.1-.37.02-.1.04-.2.05-.3l.09-.49c.02-.18.04-.39.05-.59v-.17c.02-.19.02-.42.01-.67,0-.03,0-.1,0-.15-.04-.93-.25-1.89-.61-2.82,0-.02-.02-.05-.02-.07l-.02-.05c-.19-.46-.41-.9-.67-1.3-.14-.22-.28-.43-.43-.62-.17-.22-.31-.39-.45-.55-.04-.04-.08-.08-.12-.13-.14-.15-.27-.3-.42-.43l-.33-.28c-.1-.09-.17-.15-.23-.2-.13-.11-.28-.2-.42-.3-.11-.07-.17-.12-.24-.17l-.04-.03c-.13-.08-.35-.21-.58-.33-2.99-1.57-5.36-4.17-6.67-7.34-.59-1.44-.95-2.96-1.07-4.52-.02-.25-.05-.49-.09-.75l-.05-.23c-.03-.17-.07-.34-.1-.49-.01-.05-.03-.1-.04-.16l-.03-.12c-.04-.13-.08-.28-.13-.41-.03-.09-.07-.19-.1-.29-.04-.12-.1-.25-.15-.38-.04-.1-.08-.19-.12-.28-.06-.12-.13-.25-.2-.38l-.04-.08c-.04-.07-.07-.12-.1-.17-.08-.13-.16-.26-.24-.39l-.15-.23c-.13-.19-.26-.37-.4-.54-.31-.38-.66-.74-1.04-1.07-.16-.13-.32-.27-.51-.4-.03-.02-.07-.04-.1-.07l-.09-.06c-.15-.1-.28-.19-.42-.27l-.22-.13c-.13-.07-.26-.14-.39-.21-.08-.04-.15-.07-.23-.11l-.68-.28c-.13-.05-.28-.09-.42-.13l-.27-.08c-.14-.04-.31-.07-.48-.11l-.26-.05c-.19-.03-.43-.06-.66-.08-4.33-.35-8.22-2.66-10.68-6.32l-.08-.13c-.1-.14-.26-.4-.41-.66-.1-.17-.19-.34-.28-.52-.03-.04-.06-.09-.08-.15-.19-.39-.39-.73-.59-1.04l-.17-.25c-.07-.1-.13-.19-.2-.28-.05-.06-.1-.12-.15-.18l-.23-.28h0s-.02-.03-.03-.04c-.14-.15-.28-.29-.43-.44-.04-.03-.09-.09-.15-.15-.1-.1-.27-.24-.44-.37l-.11-.1c-.12-.09-.3-.22-.5-.36,0,0,0,0,0,0,0,0-.1-.07-.13-.09-.09-.06-.28-.17-.49-.29l-.11-.07c-.13-.07-.32-.16-.52-.25l-.27-.11c-.08-.03-.17-.07-.26-.1-2.25-.8-4.34-.39-5.29-.11-.1.04-.2.06-.3.1-.14.05-.23.08-.23.08h0c-1.28.37-2.6.57-3.95.57-3.43,0-6.75-1.25-9.33-3.51-1.51-1.32-3.41-2.05-5.36-2.07-1.93.02-3.82.75-5.33,2.07-2.58,2.26-5.9,3.51-9.33,3.51-1.62,0-3.2-.28-4.72-.82-.32-.11-.69-.19-1.1-.23-.09,0-.16-.01-.24-.02-.21-.02-.38-.04-.55-.05h-.1s-.3,0-.3,0h-.32c-.17,0-.33.02-.5.04l-.31.03c-.12.02-.32.06-.52.1l-.18.03c-.14.03-.35.09-.55.15l-.14.04c-.14.05-.34.12-.54.2l-.27.11c-.16.07-.35.16-.53.25-.03.02-.05.03-.08.05-.2.11-.39.22-.55.33-.03.02-.06.04-.09.06-.18.12-.36.25-.52.38l-.02.02c-.21.17-.37.31-.55.48-.03.03-.06.06-.09.09-.14.14-.28.28-.42.43-.02.03-.04.06-.04.06l-.15.18s-.04.04-.04.05c-.1.11-.17.2-.24.29-.03.04-.05.08-.08.11l-.25.37c-.06.09-.09.12-.11.15-.11.18-.22.38-.34.62l-.09.16c-.09.18-.24.46-.4.74-.15.26-.31.52-.45.73l-.02.03c-2.47,3.7-6.37,6.01-10.7,6.36-.23.02-.46.05-.72.09l-.17.04c-.19.04-.36.07-.52.11l-.24.07c-.15.04-.3.09-.44.14-.07.03-.16.06-.25.09l-.46.2s-.11.05-.18.09c-.13.07-.26.14-.39.21l-.25.14c-.11.07-.24.16-.37.25l-.13.09h0s-.03.02-.05.03c-.2.15-.38.29-.55.43-.37.32-.72.68-1.04,1.07-.14.17-.28.35-.42.56l-.12.18c-.09.14-.18.28-.26.41l-.13.24c-.07.13-.14.26-.2.39-.04.08-.08.17-.12.26-.06.13-.11.27-.16.4-.03.09-.07.18-.1.28-.05.14-.09.28-.13.42l-.08.3c-.03.14-.06.3-.1.46l-.06.28c-.03.21-.06.46-.08.71-.12,1.56-.48,3.08-1.07,4.51-1.31,3.17-3.67,5.78-6.67,7.34-.21.11-.43.24-.63.36,0,0,0,0,0,0-.05.04-.12.09-.19.13-.18.12-.33.22-.46.33-.07.05-.13.1-.19.16l-.41.35c-.11.11-.25.25-.38.4-.04.04-.08.09-.16.16-.11.12-.24.29-.39.48-.01.02-.05.06-.07.09-.11.15-.24.35-.38.56-.26.42-.48.85-.67,1.31l-.04.11c-.37.94-.58,1.92-.62,2.9v.02c0,.31,0,.54,0,.79v.06c.02.26.04.46.06.67l.07.4s.01.06.01.07c.02.11.03.2.05.3.02.1.05.2.08.3l.06.2c.02.07.04.15.06.23l.02.08c.93,2.94.92,6.09-.05,9.07-.05.15-.1.28-.15.42l-.06.17c-.03.09-.06.18-.1.28-.04.11-.09.21-.14.32l-.08.2c-.04.09-.09.2-.14.31-.53,1.14-1.21,2.19-2,3.14-.64.76-1.14,1.63-1.48,2.58-.02.06-.04.13-.06.19l-.05.16c-.28.9-.43,1.8-.43,2.7,0,1.45.37,2.9,1.07,4.2.23.42.51.84.83,1.23l.1.12c1,1.14,2.92,2.68,6.3,3.46l.07.02c1.49.34,3.14.51,4.92.51h103.7c1.77,0,3.42-.17,4.89-.5l.1-.02c3.38-.78,5.29-2.32,6.3-3.46h0s0,0,0,0l.11-.13c.31-.37.59-.79.83-1.23.69-1.28,1.06-2.73,1.06-4.18,0-.89-.14-1.8-.42-2.68M109.75,56.47c-.43.55-1.07.87-1.77.87H22.29c-.7,0-1.34-.32-1.77-.87-.43-.55-.57-1.26-.39-1.93,5.44-20.81,23.95-35.37,45-35.42,21.06.04,39.57,14.61,45.01,35.42.18.67.03,1.37-.39,1.93"/>
-          <path class="cls-2" d="M160.9,27.38c10.73-.01,21.46-.02,32.19-.04,0,4.68,0,7.01,0,11.69-7.91.08-11.87.13-19.78.22,0,7.98,0,15.96,0,23.94,6.8-.22,10.2-.32,17.01-.53,0,4.7,0,7.05,0,11.76-6.8.27-10.2.41-17.01.7,0,7.98,0,15.96,0,23.94,7.9-.5,11.86-.74,19.76-1.19,0,4.68,0,7.01,0,11.69-10.72.73-21.44,1.51-32.15,2.32V27.38"/>
-          <path class="cls-2" d="M227.03,82.2c4.78-18.31,9.61-36.61,14.47-54.91,4.96,0,7.45,0,12.41,0-.02,26.25-.05,52.51-.07,78.76-4.75.23-7.13.35-11.88.59.01-14.84.02-29.68.04-44.52-3.57,15.02-7.12,30.05-10.65,45.09-3.37.19-5.05.28-8.42.47-3.65-14.93-7.28-29.87-10.88-44.81-.01,15.15-.02,30.3-.03,45.46-4.8.29-7.21.45-12.01.76.01-27.25.03-54.5.04-81.75,4.97,0,7.45,0,12.41-.01,4.82,18.3,9.67,36.6,14.56,54.88"/>
-          <path class="cls-2" d="M261.27,27.28c7.23,0,10.84,0,18.07-.01,9.42,0,17.4,6.04,16.52,16.21,0,4.63,0,6.95-.01,11.59.22,7.58-4.69,13.64-11.9,15.64-1.9.59-4.67.93-8.29,1.02-.81.02-1.21.03-2.02.05,0,11.13-.02,22.26-.03,33.39-4.96.21-7.45.31-12.41.54.02-26.14.05-52.28.07-78.42M273.67,38.35c0,7.44-.01,14.88-.02,22.31,1.14-.02,1.71-.03,2.85-.05,1.73-.03,2.91-.16,3.55-.38,2.25-.86,3.38-2.52,3.38-4.99,0-4.66,0-6.99,0-11.65,0-3.53-1.79-5.28-5.39-5.26-1.76.01-2.63.02-4.39.03"/>
-          <path class="cls-2" d="M332.83,76.3c1.34,8.96,2.68,17.92,4.02,26.88-5.02.11-7.53.16-12.55.29-.96-6.44-1.44-9.66-2.4-16.11-5.07.11-7.61.16-12.68.28-.99,6.52-1.48,9.79-2.47,16.32-5,.15-7.5.24-12.5.41,1.35-9.11,2.7-18.22,4.06-27.33,2.93-16.6,5.87-33.2,8.81-49.79,6.81,0,10.21,0,17.02,0,2.89,16.35,5.79,32.7,8.7,49.05M320.28,76.5c-1.57-10.57-3.15-21.14-4.71-31.71-1.59,10.63-3.18,21.26-4.76,31.89,3.79-.07,5.69-.11,9.48-.17"/>
-          <path class="cls-2" d="M343.9,27.24c4.96,0,7.45,0,12.41,0,3.91,14.59,7.82,29.17,11.74,43.75,0-14.59.01-29.17.02-43.76,4.6,0,6.89,0,11.49,0,0,25.11-.01,50.22-.02,75.33-4.97.04-7.45.06-12.42.12-3.77-14.1-7.54-28.2-11.3-42.31,0,14.15-.01,28.31-.02,42.46-4.78.07-7.16.11-11.94.2.01-25.27.03-50.53.04-75.8"/>
-          <path class="cls-2" d="M425.13,75.82c1.35,8.91,2.7,17.83,4.04,26.74-5.02-.04-7.53-.06-12.55-.08-.97-6.39-1.45-9.58-2.41-15.96-5.07-.01-7.61-.01-12.68-.01-.98,6.38-1.48,9.57-2.46,15.96-5,0-7.51.02-12.51.04,1.35-8.87,2.7-17.73,4.04-26.6,2.93-16.23,5.85-32.45,8.78-48.68,6.81,0,10.21,0,17.02,0,2.91,16.2,5.83,32.39,8.74,48.59M412.58,75.78c-1.58-10.43-3.16-20.86-4.74-31.3-1.58,10.43-3.16,20.86-4.74,31.29,3.79,0,5.69,0,9.48,0"/>
-          <path class="cls-2" d="M436.16,27.23c7.65,0,11.47,0,19.12,0,9.94,0,16.68,5.86,16.54,15.99,0,14.67.02,29.34.03,44.01.15,10.48-7.33,15.82-17.32,15.62-7.34-.12-11.01-.17-18.34-.24,0-25.13-.02-50.26-.02-75.4M448.58,37.98c0,18.02.01,36.04.02,54.06,2.18.03,3.27.04,5.44.07,3.6.05,5.4-1.63,5.39-5.05,0-14.63-.01-29.25-.02-43.88,0-3.45-1.8-5.18-5.4-5.19-2.18,0-3.26,0-5.44-.01"/>
-          <path class="cls-2" d="M515.73,77.07c1.36,9.18,2.71,18.35,4.06,27.53-5.02-.18-7.53-.27-12.55-.44-.97-6.55-1.46-9.83-2.43-16.37-5.07-.13-7.61-.19-12.68-.3-.98,6.46-1.47,9.69-2.44,16.14-5-.14-7.5-.2-12.51-.32,1.34-8.93,2.68-17.87,4.02-26.81,2.92-16.42,5.83-32.84,8.74-49.26,6.81,0,10.21,0,17.02,0,2.93,16.6,5.86,33.2,8.77,49.81M503.18,76.79c-1.59-10.65-3.17-21.31-4.76-31.96-1.57,10.59-3.14,21.19-4.71,31.78,3.79.07,5.69.11,9.48.18"/>
-          <path class="cls-2" d="M557.17,34.13c-5.55,20.07-11.15,40.13-16.79,60.18,7.04.26,10.55.4,17.59.7,0,4.49,0,6.74.01,11.23-10.52-.5-21.05-.96-31.58-1.39,0-2.69,0-4.03,0-6.72,5.63-19.89,11.23-39.8,16.79-59.71-6.51-.05-9.76-.07-16.27-.11,0-4.41,0-6.62-.01-11.04,10.09,0,20.17.01,30.26.02,0,2.73,0,4.1,0,6.84"/>
-          <path class="cls-2" d="M603.1,79.88c1.35,9.71,2.71,19.43,4.05,29.15-5.01-.32-7.52-.48-12.53-.79-.97-6.92-1.45-10.38-2.42-17.27-5.07-.24-7.6-.36-12.67-.58-.98,6.75-1.47,10.11-2.44,16.84-5-.28-7.5-.41-12.5-.66,1.34-9.29,2.68-18.57,4.01-27.86,2.92-17.13,5.83-34.26,8.73-51.4,6.81,0,10.21,0,17.02.02,2.94,17.52,5.86,35.04,8.76,52.56M590.56,79.38c-1.58-11.21-3.17-22.42-4.76-33.62-1.57,11.09-3.14,22.18-4.71,33.27,3.79.14,5.68.21,9.47.36"/>
-          <path class="cls-2" d="M611.45,43.26c-.02-10.27,7.5-17.62,17.8-17.21,9.87.39,18.79,6.7,17.85,17.74v11.37c-4.96-.13-7.44-.19-12.41-.32,0-4.5,0-6.75,0-11.24,0-3.75-1.8-5.65-5.4-5.72-.03,0-.05,0-.09,0-3.57-.04-5.35,1.82-5.35,5.56,0,3,0,4.51,0,7.51,0,3.69,3.9,8.42,11.62,13.93,6.46,4.61,11.6,11.65,11.61,19.91v10.68c1.02,11.04-7.96,16.82-17.78,16.44-10.35-.41-17.82-8.12-17.84-18.5,0-4.41,0-6.62,0-11.03,4.96.22,7.44.33,12.4.57,0,4.46,0,6.68,0,11.14,0,3.74,1.81,5.72,5.43,5.95,3.59.23,5.39-1.54,5.39-5.32,0-3.82,0-5.73,0-9.54,0-4.03-3.9-9.12-11.62-14.58-6.4-4.53-11.61-11.44-11.63-19.64,0-3.07,0-4.61,0-7.69"/>
+          <path fill="#fefae4" d="M160.9,27.38c10.73-.01,21.46-.02,32.19-.04,0,4.68,0,7.01,0,11.69-7.91.08-11.87.13-19.78.22,0,7.98,0,15.96,0,23.94,6.8-.22,10.2-.32,17.01-.53,0,4.7,0,7.05,0,11.76-6.8.27-10.2.41-17.01.7,0,7.98,0,15.96,0,23.94,7.9-.5,11.86-.74,19.76-1.19,0,4.68,0,7.01,0,11.69-10.72.73-21.44,1.51-32.15,2.32V27.38"/>
+          <path fill="#fefae4" d="M227.03,82.2c4.78-18.31,9.61-36.61,14.47-54.91,4.96,0,7.45,0,12.41,0-.02,26.25-.05,52.51-.07,78.76-4.75.23-7.13.35-11.88.59.01-14.84.02-29.68.04-44.52-3.57,15.02-7.12,30.05-10.65,45.09-3.37.19-5.05.28-8.42.47-3.65-14.93-7.28-29.87-10.88-44.81-.01,15.15-.02,30.3-.03,45.46-4.8.29-7.21.45-12.01.76.01-27.25.03-54.5.04-81.75,4.97,0,7.45,0,12.41-.01,4.82,18.3,9.67,36.6,14.56,54.88"/>
+          <path fill="#fefae4" d="M261.27,27.28c7.23,0,10.84,0,18.07-.01,9.42,0,17.4,6.04,16.52,16.21,0,4.63,0,6.95-.01,11.59.22,7.58-4.69,13.64-11.9,15.64-1.9.59-4.67.93-8.29,1.02-.81.02-1.21.03-2.02.05,0,11.13-.02,22.26-.03,33.39-4.96.21-7.45.31-12.41.54.02-26.14.05-52.28.07-78.42M273.67,38.35c0,7.44-.01,14.88-.02,22.31,1.14-.02,1.71-.03,2.85-.05,1.73-.03,2.91-.16,3.55-.38,2.25-.86,3.38-2.52,3.38-4.99,0-4.66,0-6.99,0-11.65,0-3.53-1.79-5.28-5.39-5.26-1.76.01-2.63.02-4.39.03"/>
+          <path fill="#fefae4" d="M332.83,76.3c1.34,8.96,2.68,17.92,4.02,26.88-5.02.11-7.53.16-12.55.29-.96-6.44-1.44-9.66-2.4-16.11-5.07.11-7.61.16-12.68.28-.99,6.52-1.48,9.79-2.47,16.32-5,.15-7.5.24-12.5.41,1.35-9.11,2.7-18.22,4.06-27.33,2.93-16.6,5.87-33.2,8.81-49.79,6.81,0,10.21,0,17.02,0,2.89,16.35,5.79,32.7,8.7,49.05M320.28,76.5c-1.57-10.57-3.15-21.14-4.71-31.71-1.59,10.63-3.18,21.26-4.76,31.89,3.79-.07,5.69-.11,9.48-.17"/>
+          <path fill="#fefae4" d="M343.9,27.24c4.96,0,7.45,0,12.41,0,3.91,14.59,7.82,29.17,11.74,43.75,0-14.59.01-29.17.02-43.76,4.6,0,6.89,0,11.49,0,0,25.11-.01,50.22-.02,75.33-4.97.04-7.45.06-12.42.12-3.77-14.1-7.54-28.2-11.3-42.31,0,14.15-.01,28.31-.02,42.46-4.78.07-7.16.11-11.94.2.01-25.27.03-50.53.04-75.8"/>
+          <path fill="#fefae4" d="M425.13,75.82c1.35,8.91,2.7,17.83,4.04,26.74-5.02-.04-7.53-.06-12.55-.08-.97-6.39-1.45-9.58-2.41-15.96-5.07-.01-7.61-.01-12.68-.01-.98,6.38-1.48,9.57-2.46,15.96-5,0-7.51.02-12.51.04,1.35-8.87,2.7-17.73,4.04-26.6,2.93-16.23,5.85-32.45,8.78-48.68,6.81,0,10.21,0,17.02,0,2.91,16.2,5.83,32.39,8.74,48.59M412.58,75.78c-1.58-10.43-3.16-20.86-4.74-31.3-1.58,10.43-3.16,20.86-4.74,31.29,3.79,0,5.69,0,9.48,0"/>
+          <path fill="#fefae4" d="M436.16,27.23c7.65,0,11.47,0,19.12,0,9.94,0,16.68,5.86,16.54,15.99,0,14.67.02,29.34.03,44.01.15,10.48-7.33,15.82-17.32,15.62-7.34-.12-11.01-.17-18.34-.24,0-25.13-.02-50.26-.02-75.4M448.58,37.98c0,18.02.01,36.04.02,54.06,2.18.03,3.27.04,5.44.07,3.6.05,5.4-1.63,5.39-5.05,0-14.63-.01-29.25-.02-43.88,0-3.45-1.8-5.18-5.4-5.19-2.18,0-3.26,0-5.44-.01"/>
+          <path fill="#fefae4" d="M515.73,77.07c1.36,9.18,2.71,18.35,4.06,27.53-5.02-.18-7.53-.27-12.55-.44-.97-6.55-1.46-9.83-2.43-16.37-5.07-.13-7.61-.19-12.68-.3-.98,6.46-1.47,9.69-2.44,16.14-5-.14-7.5-.2-12.51-.32,1.34-8.93,2.68-17.87,4.02-26.81,2.92-16.42,5.83-32.84,8.74-49.26,6.81,0,10.21,0,17.02,0,2.93,16.6,5.86,33.2,8.77,49.81M503.18,76.79c-1.59-10.65-3.17-21.31-4.76-31.96-1.57,10.59-3.14,21.19-4.71,31.78,3.79.07,5.69.11,9.48.18"/>
+          <path fill="#fefae4" d="M557.17,34.13c-5.55,20.07-11.15,40.13-16.79,60.18,7.04.26,10.55.4,17.59.7,0,4.49,0,6.74.01,11.23-10.52-.5-21.05-.96-31.58-1.39,0-2.69,0-4.03,0-6.72,5.63-19.89,11.23-39.8,16.79-59.71-6.51-.05-9.76-.07-16.27-.11,0-4.41,0-6.62-.01-11.04,10.09,0,20.17.01,30.26.02,0,2.73,0,4.1,0,6.84"/>
+          <path fill="#fefae4" d="M603.1,79.88c1.35,9.71,2.71,19.43,4.05,29.15-5.01-.32-7.52-.48-12.53-.79-.97-6.92-1.45-10.38-2.42-17.27-5.07-.24-7.6-.36-12.67-.58-.98,6.75-1.47,10.11-2.44,16.84-5-.28-7.5-.41-12.5-.66,1.34-9.29,2.68-18.57,4.01-27.86,2.92-17.13,5.83-34.26,8.73-51.4,6.81,0,10.21,0,17.02,0,2.94,17.52,5.86,35.04,8.76,52.56M590.56,79.38c-1.58-11.21-3.17-22.42-4.76-33.62-1.57,11.09-3.14,22.18-4.71,33.27,3.79.14,5.68.21,9.47.36"/>
+          <path fill="#fefae4" d="M611.45,43.26c-.02-10.27,7.5-17.62,17.8-17.21,9.87.39,18.79,6.7,17.85,17.74v11.37c-4.96-.13-7.44-.19-12.41-.32,0-4.5,0-6.75,0-11.24,0-3.75-1.8-5.65-5.4-5.72-.03,0-.05,0-.09,0-3.57-.04-5.35,1.82-5.35,5.56,0,3,0,4.51,0,7.51,0,3.69,3.9,8.42,11.62,13.93,6.46,4.61,11.6,11.65,11.61,19.91v10.68c1.02,11.04-7.96,16.82-17.78,16.44-10.35-.41-17.82-8.12-17.84-18.5,0-4.41,0-6.62,0-11.03,4.96.22,7.44.33,12.4.57,0,4.46,0,6.68,0,11.14,0,3.74,1.81,5.72,5.43,5.95,3.59.23,5.39-1.54,5.39-5.32,0-3.82,0-5.73,0-9.54,0-4.03-3.9-9.12-11.62-14.58-6.4-4.53-11.61-11.44-11.63-19.64,0-3.07,0-4.61,0-7.69"/>
         </svg>
       </div>
     `;
@@ -1763,7 +2162,7 @@
         titulo: "Empanadazas",
         subtitulo: "Cadena de franquicias gastronómicas y creadores de la categoría Miti-Miti",
         categoria: "DESARROLLO COMERCIAL / FRANQUICIAS",
-        usaLogoSvg: true, // Reemplaza el título de texto por el SVG oficial
+        usaLogoSvg: true,
         cuerpo: `
           <p><strong>Empanadazas</strong> es un modelo gastronómico fundado por Pablo Muney junto a profesionales culinarios, creado para innovar en el segmento tradicional de empanadas mediante unidades de tamaño XL y venta por peso.</p>
           <p>La marca introdujo al mercado el concepto registrado <em>«Miti-Miti»</em>: una técnica de manufactura que combina dos rellenos culinarios independientes dentro de una misma pieza, sin mezcla de sabores, identificados visualmente por cubiertas superiores (<em>toppings</em>) a través de un catálogo de más de 50 variedades.</p>
@@ -2032,7 +2431,7 @@
     };
 
     // ==========================================================================
-    // NAVEGACIÓN DIRECTA SIN SALTO AL INICIO NI FLASH EN PORTADA
+    // NAVEGACIÓN Y SMART SCROLL RETURN EXACTO
     // ==========================================================================
     function navegarDesdeCualquierLugar(seccionId) {
       const vistaExp = document.getElementById('vista-expediente');
@@ -2043,27 +2442,23 @@
         const target = document.getElementById(seccionId);
         if (!target) return 0;
         
-        // Si el destino es el formulario, scroll al inicio exacto del banner
         if (seccionId === 'sec-contacto') {
           return Math.max(0, target.getBoundingClientRect().top + window.pageYOffset - headerHeight);
         }
 
-        // Para las demás secciones, compensar altura exacta de cabecera
         return Math.max(0, target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 12);
       }
 
-      // Si estamos dentro de un expediente, conmutar y saltar instantáneamente al destino sin parpadeo arriba
       if (vistaExp && vistaExp.style.display === 'block') {
         vistaExp.style.display = 'none';
         vistaPort.style.display = 'block';
         
         const destinoExacto = calcularPosicionDestino();
         window.scrollTo({ top: destinoExacto, behavior: 'instant' });
-        history.pushState("", document.title, window.location.pathname);
+        history.pushState(null, document.title, window.location.pathname);
         return;
       }
 
-      // Si ya estamos en portada, desplazamiento suave elegante
       const destinoExacto = calcularPosicionDestino();
       window.scrollTo({ top: destinoExacto, behavior: 'smooth' });
     }
@@ -2072,9 +2467,8 @@
       const data = baseExpedientes[id];
       if (!data) return;
 
-      posicionPreviaScroll = window.pageYOffset;
+      posicionPreviaScroll = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
 
-      // Inyección del título: si es Empanadazas, inyecta su SVG oficial en cápsula
       const tituloContainer = document.getElementById('exp-titulo-container');
       if (data.usaLogoSvg) {
         tituloContainer.innerHTML = svgOficialEmpanadazas;
@@ -2107,22 +2501,27 @@
       document.getElementById('vista-expediente').style.display = 'block';
       window.scrollTo(0, 0);
 
-      window.location.hash = 'expediente-' + id;
+      history.pushState({ expediente: id, scrollSaved: posicionPreviaScroll }, '', '#expediente-' + id);
     }
 
     function cerrarExpedienteYVolver() {
       document.getElementById('vista-expediente').style.display = 'none';
       document.getElementById('vista-portada').style.display = 'block';
 
-      window.scrollTo({
-        top: posicionPreviaScroll,
-        behavior: 'instant'
+      const targetY = posicionPreviaScroll;
+      window.scrollTo({ top: targetY, behavior: 'instant' });
+
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: targetY, behavior: 'instant' });
+        setTimeout(() => {
+          window.scrollTo({ top: targetY, behavior: 'instant' });
+        }, 20);
       });
 
-      history.pushState("", document.title, window.location.pathname + window.location.search);
+      history.pushState(null, document.title, window.location.pathname + window.location.search);
     }
 
-    window.addEventListener('popstate', () => {
+    window.addEventListener('popstate', (e) => {
       const hash = window.location.hash;
       if (hash.startsWith('#expediente-')) {
         const id = hash.replace('#expediente-', '');
